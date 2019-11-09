@@ -10,6 +10,7 @@
       <change beforePath="$PROJECT_DIR$/metalshop/src/main/resources/static/js/materialize.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/metalshop/src/main/resources/static/js/materialize.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/metalshop/src/main/resources/templates/js/materialize.js" beforeDir="false" afterPath="$PROJECT_DIR$/metalshop/src/main/resources/templates/js/materialize.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/metalshop/src/main/resources/templates/js/materialize.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/metalshop/src/main/resources/templates/js/materialize.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -58,6 +59,16 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="446">
+              <caret line="172" column="34" selection-start-line="172" selection-start-column="34" selection-end-line="172" selection-end-column="34" />
+            </state>
+          </provider>
+          <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/templates/product.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="236">
@@ -227,7 +238,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/rest/web/DTO/CategoriesDto.java" />
         <option value="$USER_HOME$/Downloads/metalphoto-acd156fa935a.json" />
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/application.yml" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/rest/Service/AwsUploadService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/rest/Service/GoogleDriveServiceImp.java" />
@@ -243,6 +253,7 @@
         <option value="$PROJECT_DIR$/src/main/resources/templates/welcomePage.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/rest/web/Controller/ProductController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/product.html" />
+        <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
   </component>
@@ -280,7 +291,7 @@
   <component name="MavenRunner">
     <option name="skipTests" value="true" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="787" />
     <option name="y" value="24" />
     <option name="width" value="974" />
@@ -644,12 +655,12 @@
       <workItem from="1572966729663" duration="727000" />
       <workItem from="1573235432683" duration="669000" />
       <workItem from="1573249275083" duration="2547000" />
-      <workItem from="1573288431945" duration="10553000" />
+      <workItem from="1573288431945" duration="10897000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="683947000" />
+    <option name="totallyTimeSpent" value="684291000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -661,9 +672,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7940663" visible="true" weight="0.16044776" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7940663" visible="true" weight="0.16044776" />
       <window_info id="Structure" order="1" sideWeight="0.20593368" side_tool="true" weight="0.36980307" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -671,7 +683,7 @@
       <window_info id="UI Designer" order="5" />
       <window_info id="Favorites" order="6" sideWeight="0.37553957" side_tool="true" weight="0.18763326" />
       <window_info id="Web" order="7" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Run Dashboard" order="0" sideWeight="0.8271335" visible="true" weight="0.3347779" />
+      <window_info anchor="bottom" id="Run Dashboard" order="0" sideWeight="0.8271335" visible="true" weight="0.3347779" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" sideWeight="0.49946696" weight="0.32719395" />
       <window_info anchor="bottom" id="Run" order="3" weight="0.24617068" />
@@ -905,14 +917,6 @@
     </entry>
     <entry file="file://$MAVEN_REPOSITORY$/com/amazonaws/aws-java-sdk/1.11.486/aws-java-sdk-1.11.486-sources.jar.lastUpdated">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="166" column="26" selection-start-line="166" selection-start-column="26" selection-end-line="166" selection-end-column="26" />
-        </state>
-      </provider>
-      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
       <provider selected="true" editor-type-id="text-editor">
@@ -1199,6 +1203,14 @@
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="446">
+          <caret line="172" column="34" selection-start-line="172" selection-start-column="34" selection-end-line="172" selection-end-column="34" />
+        </state>
+      </provider>
+      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
     </entry>
   </component>
   <component name="masterDetails">
