@@ -316,6 +316,16 @@
     <orderEntry type="library" name="Maven: com.amazonaws:aws-java-sdk-logs:1.9.6" level="project" />
     <orderEntry type="library" name="Maven: com.amazonaws:aws-java-sdk-codedeploy:1.9.6" level="project" />
     <orderEntry type="library" name="Maven: com.amazonaws:aws-java-sdk-rds:1.9.6" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.cloud:spring-cloud-starter-aws" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.cloud:spring-cloud-starter-aws:2.1.3.RELEASE" level="project" />
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$MAVEN_REPOSITORY$/com/amazonaws/aws-java-sdk/1.9.6/aws-java-sdk-1.9.6.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="jar://$MAVEN_REPOSITORY$/com/amazonaws/aws-java-sdk/1.9.6/aws-java-sdk-1.9.6.jar!/" recursive="false" />
+      </library>
+    </orderEntry>
   </component>
 </module>
