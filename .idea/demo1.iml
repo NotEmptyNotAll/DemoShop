@@ -316,6 +316,6 @@
     <orderEntry type="library" name="Maven: com.amazonaws:aws-java-sdk-logs:1.9.6" level="project" />
     <orderEntry type="library" name="Maven: com.amazonaws:aws-java-sdk-codedeploy:1.9.6" level="project" />
     <orderEntry type="library" name="Maven: com.amazonaws:aws-java-sdk-rds:1.9.6" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.cloud:spring-cloud-starter-aws:unknown" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.cloud:spring-cloud-starter-aws" level="project" />
   </component>
 </module>
