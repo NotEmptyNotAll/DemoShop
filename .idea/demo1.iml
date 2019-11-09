@@ -214,7 +214,7 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-webmvc:5.1.8.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.webjars:jquery:3.2.1" level="project" />
     <orderEntry type="library" name="Maven: org.json:json:20160807" level="project" />
-    <orderEntry type="library" name="Maven: org.postgresql:postgresql:42.2.1" level="project" />
+    <orderEntry type="library" name="Maven: org.postgresql:postgresql:42.2.8" level="project" />
     <orderEntry type="library" name="Maven: org.webjars.bower:materialize:0.100.2" level="project" />
     <orderEntry type="library" name="Maven: org.webjars.bower:jquery:3.4.1" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.springframework.boot:spring-boot-starter-tomcat:2.1.6.RELEASE" level="project" />
