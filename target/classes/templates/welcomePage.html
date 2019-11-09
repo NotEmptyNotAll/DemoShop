@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Datepicker Example</title>
+    <meta charset="utf-8">
+    <!--Import Google Icon Font-->
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script type="text/javascript"
+            src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/materialize.min.js"></script>
+    <link rel="stylesheet" href="css/materialize.min.css">
+    <style>
+
+        .preloader-background {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #eee;
+            position: fixed;
+            z-index: 999;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+
+        p {
+            padding-top: 120px;
+            margin-left: -60px;
+            opacity: 0.8;
+        }
+
+        }
+
+        /
+        /
+        ADD BLINKING TEXT CLASS
+        .blinking {
+            animation: blinker 0.5s linear infinite;
+        }
+
+        @keyframes blinker {
+            50% {
+                opacity: 0;
+            }
+        }
+    </style>
+
+    <style rel="stylesheet">
+        /* Cool infinite background scrolling animation.
+       * Twitter: @kootoopas
+       */
+        /* Exo thin font from Google. */
+        @import url(https://fonts.googleapis.com/css?family=Exo:100);
+        /* Background data (Original source: https://subtlepatterns.com/grid-me/) */
+        /* Animations */
+        @-webkit-keyframes bg-scrolling-reverse {
+            100% {
+                background-position: 50px 50px;
+            }
+        }
+
+        @-moz-keyframes bg-scrolling-reverse {
+            100% {
+                background-position: 50px 50px;
+            }
+        }
+
+        @-o-keyframes bg-scrolling-reverse {
+            100% {
+                background-position: 50px 50px;
+            }
+        }
+
+        @keyframes bg-scrolling-reverse {
+            100% {
+                background-position: 50px 50px;
+            }
+        }
+
+        @-webkit-keyframes bg-scrolling {
+            0% {
+                background-position: 50px 50px;
+            }
+        }
+
+        @-moz-keyframes bg-scrolling {
+            0% {
+                background-position: 50px 50px;
+            }
+        }
+
+        @-o-keyframes bg-scrolling {
+            0% {
+                background-position: 50px 50px;
+            }
+        }
+
+        @keyframes bg-scrolling {
+            0% {
+                background-position: 50px 50px;
+            }
+        }
+
+        /* Main styles */
+
+        body {
+            color: #999;
+            /* img size is 50x50 */
+            background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAIAAACRXR/mAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAABnSURBVHja7M5RDYAwDEXRDgmvEocnlrQS2SwUFST9uEfBGWs9c97nbGtDcquqiKhOImLs/UpuzVzWEi1atGjRokWLFi1atGjRokWLFi1atGjRokWLFi1af7Ukz8xWp8z8AAAA//8DAJ4LoEAAlL1nAAAAAElFTkSuQmCC") repeat 0 0;
+            -webkit-animation: bg-scrolling-reverse .92s infinite;
+            /* Safari 4+ */
+            -moz-animation: bg-scrolling-reverse .92s infinite;
+            /* Fx 5+ */
+            -o-animation: bg-scrolling-reverse .92s infinite;
+            /* Opera 12+ */
+            animation: bg-scrolling-reverse .92s infinite;
+            /* IE 10+ */
+            -webkit-animation-timing-function: linear;
+            -moz-animation-timing-function: linear;
+            -o-animation-timing-function: linear;
+            animation-timing-function: linear;
+        }
+
+        .containerImg {
+            padding: 30px;
+            align-content: center;
+            width: 1300px;
+            min-height: 500px;
+            margin: 70px auto 0;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            background: rgba(33,33,33,0.6);/* Цвет фона */
+
+        }
+
+        .containerImg .box {
+            position: relative;
+            width: 500px;
+            height: 250px;
+            margin: 10px;
+            box-sizing: border-box;
+            display: inline-block;
+            background: #424242;
+        }
+        img{
+            width: 500px;
+            height: 250px;
+        }
+
+        .containerImg .box .imgBox {
+            position: relative;
+            overflow: hidden;
+
+        }
+
+        .containerImg .box .imgBox img {
+            max-width: 100%;
+            transition: transform 1.5s;
+
+        }
+
+        .containerImg .box:hover .imgBox img {
+            transform: scale(1.2);
+        }
+
+        .containerImg .box .details {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.8);
+            transform: scaleY(0);
+            transition: transform .5s;
+        }
+
+        .containerImg .box:hover .details {
+            transform: scaleY(1);
+        }
+
+
+        .containerImg .box .details .content {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            text-align: center;
+            padding: 15px;
+            color: #fff;
+
+        }
+
+        .containerImg .box .details .content h2 {
+            margin: 0;
+            padding: 0;
+            font-size: 20px;
+            color: #ff0;
+        }
+
+        .containerImg .box .details .content p {
+            margin: 10px 0 0;
+            padding: 0;
+        }
+
+
+    </style>
+
+</head>
+<body>
+<th:block th:include="fragments/mobile_menu"></th:block>
+
+
+<div style="height: auto">
+    <h1 align="center" style="position: relative; top: 30px;">your corporation</h1>
+    <div class="z-depth-5  containerImg hoverable  container" style=" border-radius: 50px; ">
+        <div align="center" >
+
+            <div th:each="categ:${listCategories}" class="box"style="size: auto">
+                <div class="imgBox" >
+                    <img th:src="${categ.getImageLink()}">
+                </div>
+                <div class="details">
+                    <div class="content">
+                        <h2 th:utext="${categ.getName()}">...</h2>
+                        <p th:utext="${categ.getDescription()}"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br/>
+<br/>
+
+
+
+<div th:replace="~{fragments/footer :: fragmentFooter}"></div>
+<div class="preloader-background">
+    <div class="preloader-wrapper big active">
+        <div class="spinner-layer spinner-blue">
+            <div class="circle-clipper left">
+                <div class="circle"></div>
+            </div>
+            <div class="gap-patch">
+                <div class="circle"></div>
+            </div>
+            <div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+        </div>
+
+        <div class="spinner-layer spinner-red">
+            <div class="circle-clipper left">
+                <div class="circle"></div>
+            </div>
+            <div class="gap-patch">
+                <div class="circle"></div>
+            </div>
+            <div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+        </div>
+
+        <div class="spinner-layer spinner-yellow">
+            <div class="circle-clipper left">
+                <div class="circle"></div>
+            </div>
+            <div class="gap-patch">
+                <div class="circle"></div>
+            </div>
+            <div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+        </div>
+
+        <div class="spinner-layer spinner-green">
+            <div class="circle-clipper left">
+                <div class="circle"></div>
+            </div>
+            <div class="gap-patch">
+                <div class="circle"></div>
+            </div>
+            <div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        $('.preloader-background').delay(1000).fadeOut('slow');
+
+        $('.preloader-wrapper')
+            .delay(1000)
+            .fadeOut();
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+</body>
+</html>							
+
+							

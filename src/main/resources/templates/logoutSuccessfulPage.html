@@ -1,0 +1,221 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Logout</title>
+    <meta name="viewport" content="width = device-width, initial-scale = 1">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection"/>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!--Let browser know website is optimized for mobile-->
+    <style rel="stylesheet">
+        /* Cool infinite background scrolling animation.
+       * Twitter: @kootoopas
+       */
+        /* Exo thin font from Google. */
+        @import url(https://fonts.googleapis.com/css?family=Exo:100);
+        /* Background data (Original source: https://subtlepatterns.com/grid-me/) */
+        /* Animations */
+        @-webkit-keyframes bg-scrolling-reverse {
+            100% {
+                background-position: 50px 50px;
+            }
+        }
+        @-moz-keyframes bg-scrolling-reverse {
+            100% {
+                background-position: 50px 50px;
+            }
+        }
+        @-o-keyframes bg-scrolling-reverse {
+            100% {
+                background-position: 50px 50px;
+            }
+        }
+        @keyframes bg-scrolling-reverse {
+            100% {
+                background-position: 50px 50px;
+            }
+        }
+        @-webkit-keyframes bg-scrolling {
+            0% {
+                background-position: 50px 50px;
+            }
+        }
+        @-moz-keyframes bg-scrolling {
+            0% {
+                background-position: 50px 50px;
+            }
+        }
+        @-o-keyframes bg-scrolling {
+            0% {
+                background-position: 50px 50px;
+            }
+        }
+        @keyframes bg-scrolling {
+            0% {
+                background-position: 50px 50px;
+            }
+        }
+        /* Main styles */
+        body {
+            color: #999;
+            /* img size is 50x50 */
+            background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAIAAACRXR/mAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAABnSURBVHja7M5RDYAwDEXRDgmvEocnlrQS2SwUFST9uEfBGWs9c97nbGtDcquqiKhOImLs/UpuzVzWEi1atGjRokWLFi1atGjRokWLFi1atGjRokWLFi1af7Ukz8xWp8z8AAAA//8DAJ4LoEAAlL1nAAAAAElFTkSuQmCC") repeat 0 0;
+            -webkit-animation: bg-scrolling-reverse .92s infinite;
+            /* Safari 4+ */
+            -moz-animation: bg-scrolling-reverse .92s infinite;
+            /* Fx 5+ */
+            -o-animation: bg-scrolling-reverse .92s infinite;
+            /* Opera 12+ */
+            animation: bg-scrolling-reverse .92s infinite;
+            /* IE 10+ */
+            -webkit-animation-timing-function: linear;
+            -moz-animation-timing-function: linear;
+            -o-animation-timing-function: linear;
+            animation-timing-function: linear;
+        }
+        body::before {
+
+        }
+
+    </style>
+
+    <style>
+
+        .preloader-background {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #eee;
+            position: fixed;
+            z-index: 999;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+
+        p {
+            padding-top: 120px;
+            margin-left: -60px;
+            opacity: 0.8;
+        }
+
+        }
+
+        /
+        /
+        ADD BLINKING TEXT CLASS
+        .blinking {
+            animation: blinker 0.5s linear infinite;
+        }
+
+        @keyframes blinker {
+            50% {
+                opacity: 0;
+            }
+        }
+    </style>
+
+    <style>
+
+
+        ::-webkit-scrollbar { /* chrome based */
+            width: 0px; /* ширина scrollbar'a */
+            background: transparent; /* опционально */
+        }
+
+        html {
+            -ms-overflow-style: none; /* IE 10+ */
+            scrollbar-width: none; /* Firefox */
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+
+</head>
+
+<body>
+<th:block th:include="fragments/mobile_menu"></th:block>
+<div style="height: 90vh">
+    <div class="flex-center flex-column">
+        <h1 class=" animated fadeIn mb-3">
+            Logout Successful!
+        </h1>
+        <h5 class="animated fadeIn mb-3">Thank you for using our product. We're glad you're with us.</h5>
+
+        <p class="animated fadeIn text-muted">MDB Team</p>
+    </div>
+</div>
+<th:block th:include="fragments/footer"></th:block>
+
+<div class="preloader-background">
+    <div class="preloader-wrapper big active">
+        <div class="spinner-layer spinner-blue">
+            <div class="circle-clipper left">
+                <div class="circle"></div>
+            </div>
+            <div class="gap-patch">
+                <div class="circle"></div>
+            </div>
+            <div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+        </div>
+
+        <div class="spinner-layer spinner-red">
+            <div class="circle-clipper left">
+                <div class="circle"></div>
+            </div>
+            <div class="gap-patch">
+                <div class="circle"></div>
+            </div>
+            <div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+        </div>
+
+        <div class="spinner-layer spinner-yellow">
+            <div class="circle-clipper left">
+                <div class="circle"></div>
+            </div>
+            <div class="gap-patch">
+                <div class="circle"></div>
+            </div>
+            <div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+        </div>
+
+        <div class="spinner-layer spinner-green">
+            <div class="circle-clipper left">
+                <div class="circle"></div>
+            </div>
+            <div class="gap-patch">
+                <div class="circle"></div>
+            </div>
+            <div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        $('.preloader-background').delay(1700).fadeOut('slow');
+
+        $('.preloader-wrapper')
+            .delay(1700)
+            .fadeOut();
+    });
+</script>
+<!-- SCRIPTS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+</body>
+</html>

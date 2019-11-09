@@ -1,0 +1,300 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:utext="${title}"></title>
+    <meta name="viewport" content="width = device-width, initial-scale = 1">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script type="text/javascript"
+            src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css" rel="stylesheet"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/materialize.min.js"></script>
+    <link rel="stylesheet" href="css/materialize.min.css">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection"/>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <link href="../static/style.css" rel="stylesheet">
+    <style rel="stylesheet">
+        /* Cool infinite background scrolling animation.
+       * Twitter: @kootoopas
+       */
+        /* Exo thin font from Google. */
+        @import url(https://fonts.googleapis.com/css?family=Exo:100);
+        /* Background data (Original source: https://subtlepatterns.com/grid-me/) */
+        /* Animations */
+        @-webkit-keyframes bg-scrolling-reverse {
+            100% {
+                background-position: 50px 50px;
+            }
+        }
+        @-moz-keyframes bg-scrolling-reverse {
+            100% {
+                background-position: 50px 50px;
+            }
+        }
+        @-o-keyframes bg-scrolling-reverse {
+            100% {
+                background-position: 50px 50px;
+            }
+        }
+        @keyframes bg-scrolling-reverse {
+            100% {
+                background-position: 50px 50px;
+            }
+        }
+        @-webkit-keyframes bg-scrolling {
+            0% {
+                background-position: 50px 50px;
+            }
+        }
+        @-moz-keyframes bg-scrolling {
+            0% {
+                background-position: 50px 50px;
+            }
+        }
+        @-o-keyframes bg-scrolling {
+            0% {
+                background-position: 50px 50px;
+            }
+        }
+        @keyframes bg-scrolling {
+            0% {
+                background-position: 50px 50px;
+            }
+        }
+        /* Main styles */
+        body {
+            color: #999;
+            /* img size is 50x50 */
+            background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAIAAACRXR/mAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAABnSURBVHja7M5RDYAwDEXRDgmvEocnlrQS2SwUFST9uEfBGWs9c97nbGtDcquqiKhOImLs/UpuzVzWEi1atGjRokWLFi1atGjRokWLFi1atGjRokWLFi1af7Ukz8xWp8z8AAAA//8DAJ4LoEAAlL1nAAAAAElFTkSuQmCC") repeat 0 0;
+            -webkit-animation: bg-scrolling-reverse .92s infinite;
+            /* Safari 4+ */
+            -moz-animation: bg-scrolling-reverse .92s infinite;
+            /* Fx 5+ */
+            -o-animation: bg-scrolling-reverse .92s infinite;
+            /* Opera 12+ */
+            animation: bg-scrolling-reverse .92s infinite;
+            /* IE 10+ */
+            -webkit-animation-timing-function: linear;
+            -moz-animation-timing-function: linear;
+            -o-animation-timing-function: linear;
+            animation-timing-function: linear;
+        }
+        body::before {
+
+        }
+
+    </style>
+
+    <style>
+
+        .preloader-background {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #eee;
+            position: fixed;
+            z-index: 999;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+
+        p {
+            padding-top: 120px;
+            margin-left: -60px;
+            opacity: 0.8;
+        }
+
+        }
+
+        /
+        /
+        ADD BLINKING TEXT CLASS
+        .blinking {
+            animation: blinker 0.5s linear infinite;
+        }
+
+        @keyframes blinker {
+            50% {
+                opacity: 0;
+            }
+        }
+    </style>
+
+    <style>
+
+
+
+        ::-webkit-scrollbar { /* chrome based */
+            width: 0px; /* ширина scrollbar'a */
+            background: transparent; /* опционально */
+        }
+
+        html {
+            -ms-overflow-style: none; /* IE 10+ */
+            scrollbar-width: none; /* Firefox */
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+
+        hr {
+            border: none; /* Убираем границу для браузера Firefox */
+            color: lightgrey; /* Цвет линии для остальных браузеров */
+            background-color: lightgrey; /* Цвет линии для браузера Firefox и Opera */
+            height: 1px; /* Толщина линии */
+        }
+    </style>
+
+</head>
+
+<body>
+<!-- Include mobile_menu.html -->
+<th:block th:include="fragments/mobile_menu"></th:block>
+<div style="height: auto">
+    <div class="container z-depth-5 hoverable" style="background: white;border-radius: 50px">
+        <div class="container" style="position:relative;top:10px">
+            <h5 align="center">админ панель</h5>
+            <hr>
+        </div>
+        <blockquote style="position: relative;top:30px;left: 30px">
+            <h6>добро пожаловать
+                <span th:utext="${#request.userPrincipal.name}"></span>
+            </h6>
+        </blockquote>
+        <br/><br/>
+    </div>
+    <br/><br/>
+    <div class="container z-depth-5 hoverable" style="background: white;border-radius: 50px">
+
+        <div class="container" style="position: relative;top:10px">
+            <h5 align="center">заказы пользывателей</h5>
+            <hr>
+        </div>
+        <br/>
+        <div align="center">
+            <ul class="collapsible popout center" data-collapsible="accordion" style="width: 90%">
+                <li th:each="user:${users}">
+                    <div class="collapsible-header"
+                         th:utext="${user.getUserName()}">...
+                    </div>
+                    <div class="collapsible-body">
+                <span>
+                    <div class="panel">
+                        <table class="table ">
+                        <tr align="center" class="center hoverable" th:each="order:${user.getOrders()}">
+                            <td th:utext="${order.getId()}" style="width: 10vh">...</td>
+                            <td style="width: 40vh">
+                                <textarea name="comment" readonly th:utext="${order.getOrderText()}"
+                                          style="border: none;   resize: none;">...</textarea>
+                            </td>
+                            <td th:utext="${order.getBirthDate()}" style="width: 20vh">...</td>
+                            <td th:utext="${order.getDeadlines()}" style="width: 20vh">...</td>
+                            <td style="width: 10vh">
+                                    <a th:href="${order.getImageLink()}" data-position="bottom" data-tooltip="download"><i
+                                            class="material-icons">cloud_download</i></a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                </span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <br/><br/>
+    </div>
+
+</div>
+<br/><br/>
+<br/><br/>
+<br/><br/>
+
+
+<th:block th:include="fragments/footer"></th:block>
+<div class="preloader-background">
+    <div class="preloader-wrapper big active">
+        <div class="spinner-layer spinner-blue">
+            <div class="circle-clipper left">
+                <div class="circle"></div>
+            </div>
+            <div class="gap-patch">
+                <div class="circle"></div>
+            </div>
+            <div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+        </div>
+
+        <div class="spinner-layer spinner-red">
+            <div class="circle-clipper left">
+                <div class="circle"></div>
+            </div>
+            <div class="gap-patch">
+                <div class="circle"></div>
+            </div>
+            <div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+        </div>
+
+        <div class="spinner-layer spinner-yellow">
+            <div class="circle-clipper left">
+                <div class="circle"></div>
+            </div>
+            <div class="gap-patch">
+                <div class="circle"></div>
+            </div>
+            <div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+        </div>
+
+        <div class="spinner-layer spinner-green">
+            <div class="circle-clipper left">
+                <div class="circle"></div>
+            </div>
+            <div class="gap-patch">
+                <div class="circle"></div>
+            </div>
+            <div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        $('.preloader-background').delay(1000).fadeOut('slow');
+
+        $('.preloader-wrapper')
+            .delay(1000)
+            .fadeOut();
+    });
+</script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdn.metroui.org.ua/v4/js/metro.min.js"></script>
+<script type="text/javascript" src="../static/js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript"
+        th:src="@{/webjars/jquery/3.2.1/jquery.min.js/}"></script>
+<script type="text/javascript"
+        th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
+<!-- SCRIPTS -->
+
+</body>
+
+</html>

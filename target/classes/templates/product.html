@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>product</title>
+    <meta name="viewport" content="width = device-width, initial-scale = 1">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script type="text/javascript"
+            src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css" rel="stylesheet"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/materialize.min.js"></script>
+    <link rel="stylesheet" href="css/materialize.min.css">
+
+    <style>
+        ::-webkit-scrollbar { /* chrome based */
+            width: 0px; /* ширина scrollbar'a */
+            background: transparent; /* опционально */
+        }
+
+        .sticky-nav {
+            position: fixed;
+            top: 0;
+        }
+
+        html {
+            -ms-overflow-style: none; /* IE 10+ */
+            scrollbar-width: none; /* Firefox */
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .parallax {
+            position: static;
+        }
+
+        hr {
+            border: none; /* Убираем границу для браузера Firefox */
+            color: violet; /* Цвет линии для остальных браузеров */
+            background-color: violet; /* Цвет линии для браузера Firefox и Opera */
+            height: 2px; /* Толщина линии */
+            border-radius: 30px;
+        }
+    </style>
+    <style>
+
+        .preloader-background {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #eee;
+            position: fixed;
+            z-index: 999;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+
+        p {
+            padding-top: 120px;
+            margin-left: -60px;
+            opacity: 0.8;
+        }
+
+        }
+
+        /
+        /
+        ADD BLINKING TEXT CLASS
+        .blinking {
+            animation: blinker 0.5s linear infinite;
+        }
+
+        @keyframes blinker {
+            50% {
+                opacity: 0;
+            }
+        }
+    </style>
+
+</head>
+<body>
+<!--<th:block th:include="fragments/_menu"></th:block>-->
+
+<nav class="h-menu  fg-white  " style="background-color: #424242; position: fixed;top:0;z-index: 2 ">
+    <div class="nav-wrapper    " align="center">
+        <ul id="nav-mobile" class="left hide-on-med-and-down">
+            <li><a class="navbar-brand hoverable" th:href="@{/}">Home</a></li>
+            <li><a class="nav-link hoverable" th:href="@{/userInfo}">User Info</a></li>
+            <li><a class="nav-link hoverable" th:href="@{/product}">Product</a></li>
+            <li><a class="nav-link hoverable" th:href="@{/admin}">Admin</a></li>
+            <li><a class="nav-link hoverable" th:if="${#request.userPrincipal == null}"
+                   th:href="@{/registration}">Registration</a></li>
+            <li><a class="nav-link hoverable" th:if="${#request.userPrincipal != null}"
+                   th:href="@{/stock}">Stock</a>
+            </li>
+            <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Dropdown<i
+                    class="material-icons right">arrow_drop_down</i></a></li>
+        </ul>
+        <ul class="right hide-on-med-and-down">
+            <li>
+                <a class="nav-link hoverable waves-effect waves-light btn"
+                   th:if="${#request.userPrincipal == null}" th:href="@{/login}"
+                   style="background: #64dd17; border-radius: 30px; position:relative;right: 10px;">Login</a>
+            </li>
+            <li>
+                <a class="nav-link hoverable waves-effect waves-light btn"
+                   th:if="${#request.userPrincipal != null}" th:href="@{/logout}"
+                   style="background: #d50000;border-radius: 30px; position:relative;right: 10px; ">Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+<div id="modal1" class="modal" style="background: #424242 ">
+    <div class="modal-content white-text">
+        <h5 align="center">поиск по продуктам</h5>
+        <hr>
+        <div class="container">
+            <div class="row">
+                <div class="col s12">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">search</i>
+                            <input type="text" id="elastic" class=" autocomplete">
+                            <label for="elastic">поиск продуктов</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+
+            <div class=" col s2 m3 l2 card  " th:each="product:${listProduct}"
+                 style="background-color: #424242;height: 200px;width:300px ">
+                <div class="card-image waves-effect waves-block waves-light "
+                     style="height: 200px;width:300px ">
+                    <img class="activator  responsive-img card" th:src="${product.getImageLink()}"
+                         style="height: 85%;width:100%">
+                </div>
+                <div class="card-content ">
+                            <span class="card-title activator grey-text text-white-4 "
+                                  th:utext="${product.getName()}"><i class="material-icons right">more_vert</i></span>
+                </div>
+                <div class="card-reveal" style="background-color: #424242">
+                        <span class="card-title grey-text text-white-4">Card Title<i
+                                class="material-icons right">close</i></span>
+                    <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                    <div th:each="att:${product.getAttributes()}" class="row white-text hoverable"
+                         style="background-color: #424242">
+                        <input type="checkbox"/>
+                        <h5 th:utext="${att.getName()}">...</h5>
+                        <h5 th:utext="${att.getPrice()}">...</h5>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <hr style="position: relative;top:8px">
+    <div class="modal-footer white-text fixed" style="background: #212121 ">
+        <a href="#!" class="modal-close waves-effect waves-red btn-flat" style="color: white">Close</a>
+    </div>
+</div>
+
+
+<div th:each="categ:${listCategories}" class="">
+
+    <div th:id="${categ.getName()}">
+        <div class="parallax-container" style="z-index: 0">
+            <div class=" parallax ">
+                <img th:src="${categ.getImageLink()}">
+            </div>
+        </div>
+
+
+        <div class="section" style="background:#424242;height: 680px; opacity: 0.9 ">
+            <div class="container   white-text" style="height: 80%;width: 90%;">
+                <h4 th:utext="${categ.getName()}" align="center">...</h4>
+                <hr>
+                <div class="carousel center" align="center" style="position: relative;top:30px;height: 80%;">
+                    <div th:each="prod:${categ.getProducts()}">
+                        <a
+                                style="position:absolute; top: 30px;height: 100%;width:40%;"
+                                class="carousel-item center">
+                            <img th:src="${prod.getImageLink()}" style="height: 70%;width: 100%;"></a>
+                    </div>
+                </div>
+                <hr>
+            </div>
+            <!-- <div class="carousel   carousel-slider  center "style="height: 90%;background:#424242;">
+                 <div  class="carousel-item  white-text"  th:each="chunkProducts:${categ.getProducts()}" style="height:auto ">
+                     <div class="row card "  style="height: 500px;background-color:#424242; ">
+                         <div class=" col s12 m6 l4 card " th:each="product:${chunkProducts}" style="background-color: #424242">
+                             <div class="card-image waves-effect waves-block waves-light">
+                                 <img  class="activator  responsive-img card" th:src="${product.getImageLink()}" style="height: 90%;">
+                             </div>
+                             <div class="card-content">
+                                 <span class="card-title activator grey-text text-white-4" th:utext="${product.getName()}"><i class="material-icons right">more_vert</i></span>
+                             </div>
+                             <div class="card-reveal" style="background-color: #424242">
+                                 <span class="card-title grey-text text-white-4">Card Title<i class="material-icons right">close</i></span>
+                                 <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                                 <div  th:each="att:${product.getAttributes()}" class="row white-text hoverable" style="background-color: #424242" >
+                                     <input type="checkbox" />
+                                     <h5 th:utext="${att.getName()}" >...</h5>
+                                     <h5 th:utext="${att.getPrice()}">...</h5>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+
+                 </div>
+             </div>-->
+        </div>
+    </div>
+</div>
+
+
+<th:block th:include="fragments/footer"></th:block>
+
+
+<div class="preloader-background">
+    <div class="preloader-wrapper big active">
+        <div class="spinner-layer spinner-blue">
+            <div class="circle-clipper left">
+                <div class="circle"></div>
+            </div>
+            <div class="gap-patch">
+                <div class="circle"></div>
+            </div>
+            <div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+        </div>
+
+        <div class="spinner-layer spinner-red">
+            <div class="circle-clipper left">
+                <div class="circle"></div>
+            </div>
+            <div class="gap-patch">
+                <div class="circle"></div>
+            </div>
+            <div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+        </div>
+
+        <div class="spinner-layer spinner-yellow">
+            <div class="circle-clipper left">
+                <div class="circle"></div>
+            </div>
+            <div class="gap-patch">
+                <div class="circle"></div>
+            </div>
+            <div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+        </div>
+
+        <div class="spinner-layer spinner-green">
+            <div class="circle-clipper left">
+                <div class="circle"></div>
+            </div>
+            <div class="gap-patch">
+                <div class="circle"></div>
+            </div>
+            <div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- SCRIPTS -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        $('.preloader-background').delay(1000).fadeOut('slow');
+
+        $('.preloader-wrapper')
+            .delay(1000)
+            .fadeOut();
+    });
+</script>
+<script>
+    document.querySelector('#elastic').oninput = function () {
+        let val = this.value.trim();
+        let elasticItem = document.querySelectorAll('.elastic ');
+        let imageItem = document.querySelectorAll('.searchImg div');
+        let i = 0;
+        if (val != '') {
+            elasticItem.forEach(function (elem) {
+                    if (elem.innerText.search(val) == -1) {
+                        elem.classList.add('hide');
+                        imageItem.get(i).classList.add('hide');
+                    } else {
+                        elem.classList.remove('hide');
+                        imageItem.get(i).classList.remove('hide');
+                    }
+                    i++;
+                }
+            );
+            i = 0;
+        }
+    }
+</script>
+<script>
+    $(document).ready(function () {
+        $('.modal').modal();
+    });
+</script>
+<script>
+
+    $('.parallax').parallax();
+</script>
+<script>
+
+    $(document).ready(function () {
+        $('.carousel').carousel();
+    });
+
+</script>
+<script>
+    $(document).ready(function () {
+        $('#content').pushpin({
+            top: $('#content').offset().top
+        });
+        $('.scrollspy').scrollSpy({
+            scrollOfffset: 0
+        });
+    });
+</script>
+<script type="text/javascript" src="static/js/materialize.min.js"></script>
+
+</body>
+</html>
