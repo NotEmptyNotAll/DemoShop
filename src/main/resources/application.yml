@@ -3,7 +3,8 @@ google:
   service_account_email: metalphoto@metalphoto.iam.gserviceaccount.com
   application_name: MetalPhoto
   folder_id: 1ICpxXF3PuHDVlHDJgwA81WgnpmTAUTXS
-  service_account_key: metalphoto-b3b7ae782199.p12
+  service_account_key:
+
 amazonProperties:
   endpointUrl: https://s3.eu-central-1.amazonaws.com
   accessKey: AKIATMYDFE6D2VRV5LVE

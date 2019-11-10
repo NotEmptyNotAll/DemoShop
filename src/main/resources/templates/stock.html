@@ -165,7 +165,7 @@
     </style>
 
 </head>
-<body>
+<body class="black-text">
 <div th:replace="~{fragments/_menu :: fragmentMenu}"></div>
 <br/>
 <div class="container z-depth-5 hoverable"
@@ -305,7 +305,7 @@
                     </th>
                 </tr>
                 <div th:each="prod:${categ.getProducts()}">
-                    <tr class="tableItem hoverable">
+                    <tr class="tableItem hoverable" style="border-radius: 30px">
                         <td th:utext="${prod.getProduct_id()}">...</td>
                         <td th:utext="${prod.getName()}">...</td>
                         <td th:utext="${prod.getPrimaryPrice()}">...</td>
@@ -388,7 +388,7 @@
                 <td colspan="4">
                     <a th:href="@{/deleteCategories/{categid}(categid=${categ.getCategories_id()})}"
                        class="btn waves-red waves-effect center hoverable waves-teal red "
-                       style=" width: 100%; height: 120%"><i class="large material-icons ">delete</i></a>
+                       style=" width: 100%; height: 120%; border-radius: 30px" ><i class="large material-icons ">delete</i></a>
                 </td>
                 </tr>
                 </tbody>

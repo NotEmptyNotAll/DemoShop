@@ -8,10 +8,10 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection"/>
-    <script type = "text/javascript"
-            src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript"
+            src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css" rel="stylesheet"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
 
@@ -35,41 +35,49 @@
                 background-position: 50px 50px;
             }
         }
+
         @-moz-keyframes bg-scrolling-reverse {
             100% {
                 background-position: 50px 50px;
             }
         }
+
         @-o-keyframes bg-scrolling-reverse {
             100% {
                 background-position: 50px 50px;
             }
         }
+
         @keyframes bg-scrolling-reverse {
             100% {
                 background-position: 50px 50px;
             }
         }
+
         @-webkit-keyframes bg-scrolling {
             0% {
                 background-position: 50px 50px;
             }
         }
+
         @-moz-keyframes bg-scrolling {
             0% {
                 background-position: 50px 50px;
             }
         }
+
         @-o-keyframes bg-scrolling {
             0% {
                 background-position: 50px 50px;
             }
         }
+
         @keyframes bg-scrolling {
             0% {
                 background-position: 50px 50px;
             }
         }
+
         /* Main styles */
         body {
             color: #999;
@@ -88,6 +96,7 @@
             -o-animation-timing-function: linear;
             animation-timing-function: linear;
         }
+
         body::before {
 
         }
@@ -96,8 +105,6 @@
 
 
     <style>
-
-
 
 
         ::-webkit-scrollbar { /* chrome based */
@@ -170,7 +177,7 @@
 
 </head>
 
-<body>
+<body class="black-text">
 
 <!-- Include mobile_menu.html -->
 <th:block th:include="fragments/_menu"></th:block>
@@ -208,10 +215,8 @@
                 фото
             </th>
         </tr>
-
         </thead>
-
-        <tr class="hoverable" align="center" th:each="order:${orders}">
+        <tr class="hoverable" align="center" th:each="order:${orders}" style="border-radius: 30px">
             <td th:utext="${order.getId()}" style="width: 10vh">...</td>
             <td style="width: 40vh">
                 <textarea name="comment" readonly th:utext="${order.getOrderText()}"
@@ -220,18 +225,12 @@
             <td th:utext="${order.getBirthDate()}" style="width: 20vh">...</td>
             <td th:utext="${order.getDeadlines()}" style="width: 20vh">...</td>
             <td style="width: 10vh">
-
-                <a th:href="${order.getImageLink()}" data-position="bottom" data-tooltip="download"><i
-                        class="material-icons">cloud_download</i></a>
-
+                <img class="materialboxed" width="150" th:src="${order.getImageLink()}" style="border-radius: 30px">
             </td>
         </tr>
     </table>
     <div class="row" style="height: 10px"></div>
-
-
 </div>
-
 
 <div style="min-height: 50px"></div>
 

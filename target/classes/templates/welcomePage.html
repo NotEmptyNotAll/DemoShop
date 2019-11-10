@@ -3,7 +3,6 @@
 <head>
     <title>Datepicker Example</title>
     <meta charset="utf-8">
-    <!--Import Google Icon Font-->
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <script type="text/javascript"
@@ -15,6 +14,9 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/materialize.min.js"></script>
     <link rel="stylesheet" href="css/materialize.min.css">
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <style>
 
         .preloader-background {
@@ -39,10 +41,6 @@
 
         /
         /
-        ADD BLINKING TEXT CLASS
-        .blinking {
-            animation: blinker 0.5s linear infinite;
-        }
 
         @keyframes blinker {
             50% {
@@ -50,197 +48,727 @@
             }
         }
     </style>
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Montserrat);
 
-    <style rel="stylesheet">
-        /* Cool infinite background scrolling animation.
-       * Twitter: @kootoopas
-       */
-        /* Exo thin font from Google. */
-        @import url(https://fonts.googleapis.com/css?family=Exo:100);
-        /* Background data (Original source: https://subtlepatterns.com/grid-me/) */
-        /* Animations */
-        @-webkit-keyframes bg-scrolling-reverse {
-            100% {
-                background-position: 50px 50px;
-            }
-        }
-
-        @-moz-keyframes bg-scrolling-reverse {
-            100% {
-                background-position: 50px 50px;
-            }
-        }
-
-        @-o-keyframes bg-scrolling-reverse {
-            100% {
-                background-position: 50px 50px;
-            }
-        }
-
-        @keyframes bg-scrolling-reverse {
-            100% {
-                background-position: 50px 50px;
-            }
-        }
-
-        @-webkit-keyframes bg-scrolling {
-            0% {
-                background-position: 50px 50px;
-            }
-        }
-
-        @-moz-keyframes bg-scrolling {
-            0% {
-                background-position: 50px 50px;
-            }
-        }
-
-        @-o-keyframes bg-scrolling {
-            0% {
-                background-position: 50px 50px;
-            }
-        }
-
-        @keyframes bg-scrolling {
-            0% {
-                background-position: 50px 50px;
-            }
-        }
-
-        /* Main styles */
-
-        body {
-            color: #999;
-            /* img size is 50x50 */
-            background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAIAAACRXR/mAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAABnSURBVHja7M5RDYAwDEXRDgmvEocnlrQS2SwUFST9uEfBGWs9c97nbGtDcquqiKhOImLs/UpuzVzWEi1atGjRokWLFi1atGjRokWLFi1atGjRokWLFi1af7Ukz8xWp8z8AAAA//8DAJ4LoEAAlL1nAAAAAElFTkSuQmCC") repeat 0 0;
-            -webkit-animation: bg-scrolling-reverse .92s infinite;
-            /* Safari 4+ */
-            -moz-animation: bg-scrolling-reverse .92s infinite;
-            /* Fx 5+ */
-            -o-animation: bg-scrolling-reverse .92s infinite;
-            /* Opera 12+ */
-            animation: bg-scrolling-reverse .92s infinite;
-            /* IE 10+ */
-            -webkit-animation-timing-function: linear;
-            -moz-animation-timing-function: linear;
-            -o-animation-timing-function: linear;
-            animation-timing-function: linear;
-        }
-
-        .containerImg {
-            padding: 30px;
-            align-content: center;
-            width: 1300px;
-            min-height: 500px;
-            margin: 70px auto 0;
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            background: rgba(33,33,33,0.6);/* Цвет фона */
-
-        }
-
-        .containerImg .box {
-            position: relative;
-            width: 500px;
-            height: 250px;
-            margin: 10px;
-            box-sizing: border-box;
-            display: inline-block;
-            background: #424242;
-        }
-        img{
-            width: 500px;
-            height: 250px;
-        }
-
-        .containerImg .box .imgBox {
-            position: relative;
+        html, body {
+            background: #212121;
             overflow: hidden;
-
         }
 
-        .containerImg .box .imgBox img {
-            max-width: 100%;
-            transition: transform 1.5s;
-
+        .background {
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            overflow: hidden;
+            will-change: transform;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            height: 130vh;
+            position: fixed;
+            width: 100%;
+            -webkit-transform: translateY(30vh);
+            transform: translateY(30vh);
+            transition: all 1.2s cubic-bezier(0.22, 0.44, 0, 1);
         }
 
-        .containerImg .box:hover .imgBox img {
-            transform: scale(1.2);
-        }
-
-        .containerImg .box .details {
+        .background:before {
+            content: "";
             position: absolute;
-            top: 10px;
-            left: 10px;
-            bottom: 10px;
-            right: 10px;
-            background: rgba(0, 0, 0, 0.8);
-            transform: scaleY(0);
-            transition: transform .5s;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.3);
         }
 
-        .containerImg .box:hover .details {
-            transform: scaleY(1);
+        .background:first-child {
+            -webkit-transform: translateY(-15vh);
+            transform: translateY(-15vh);
         }
 
+        .background:first-child .content-wrapper {
+            -webkit-transform: translateY(15vh);
+            transform: translateY(15vh);
+        }
 
-        .containerImg .box .details .content {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
+        .background:nth-child(2) {
+        }
+
+        .background:nth-child(3) {
+
+        }
+
+        /* Set stacking context of slides */
+        .background:nth-child(1) {
+            z-index: 3;
+        }
+
+        .background:nth-child(2) {
+            z-index: 2;
+        }
+
+        .background:nth-child(3) {
+            z-index: 1;
+        }
+
+        .content-wrapper {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
             text-align: center;
-            padding: 15px;
+            flex-flow: column nowrap;
             color: #fff;
-
+            font-family: Montserrat;
+            text-transform: uppercase;
+            -webkit-transform: translateY(40vh);
+            transform: translateY(40vh);
+            will-change: transform;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            transition: all 1.7s cubic-bezier(0.22, 0.44, 0, 1);
         }
 
-        .containerImg .box .details .content h2 {
+        .content-title {
+            font-size: 8vh;
+            line-height: 1.4;
+        }
+
+        .background.up-scroll {
+            -webkit-transform: translate3d(0, -15vh, 0);
+            transform: translate3d(0, -15vh, 0);
+        }
+
+        .background.up-scroll .content-wrapper {
+            -webkit-transform: translateY(15vh);
+            transform: translateY(15vh);
+        }
+
+        .background.up-scroll + .background {
+            -webkit-transform: translate3d(0, 30vh, 0);
+            transform: translate3d(0, 30vh, 0);
+        }
+
+        .background.up-scroll + .background .content-wrapper {
+            -webkit-transform: translateY(30vh);
+            transform: translateY(30vh);
+        }
+
+        .background.down-scroll {
+            -webkit-transform: translate3d(0, -130vh, 0);
+            transform: translate3d(0, -130vh, 0);
+        }
+
+        .background.down-scroll .content-wrapper {
+            -webkit-transform: translateY(40vh);
+            transform: translateY(40vh);
+        }
+
+        .background.down-scroll + .background:not(.down-scroll) {
+            -webkit-transform: translate3d(0, -15vh, 0);
+            transform: translate3d(0, -15vh, 0);
+        }
+
+        .background.down-scroll + .background:not(.down-scroll) .content-wrapper {
+            -webkit-transform: translateY(15vh);
+            transform: translateY(15vh);
+        }
+    </style>
+    <style>
+
+
+        html, body {
             margin: 0;
             padding: 0;
-            font-size: 20px;
-            color: #ff0;
         }
 
-        .containerImg .box .details .content p {
-            margin: 10px 0 0;
-            padding: 0;
+        hr {
+            border: none; /* Убираем границу для браузера Firefox */
+            color: violet; /* Цвет линии для остальных браузеров */
+            background-color: violet; /* Цвет линии для браузера Firefox и Opera */
+            height: 1px; /* Толщина линии */
         }
 
+
+        #stars {
+            background: #212121;
+            width: 100%;
+            -webkit-transition: all 0.4s ease-in-out;
+            -moz-transition: all 0.4s ease-in-out;
+            -ms-transition: all 0.4s ease-in-out;
+            -o-transition: all 0.4s ease-in-out;
+            transition: all 0.4s ease-in-out;
+
+        }
+
+        #square {
+            background: #212121;
+            width: 100%;
+            -webkit-transition: all 0.4s ease-in-out;
+            -moz-transition: all 0.4s ease-in-out;
+            -ms-transition: all 0.4s ease-in-out;
+            -o-transition: all 0.4s ease-in-out;
+            transition: all 0.4s ease-in-out;
+        }
+
+
+        #lines {
+            background: #212121;
+            width: 100%;
+            -webkit-transition: all 0.4s ease-in-out;
+            -moz-transition: all 0.4s ease-in-out;
+            -ms-transition: all 0.4s ease-in-out;
+            -o-transition: all 0.4s ease-in-out;
+            transition: all 0.4s ease-in-out;
+        }
+
+        h2 {
+            font-size: 50px;
+        }
+
+
+        .fading span {
+            animation: fading 3s alternate infinite;
+            opacity: 0;
+        }
+
+        @keyframes fading {
+            0% {
+                opacity: 0;
+                filter: blur(10px);
+            }
+            50%, 100% {
+                opacity: 1;
+                filter: blur(0px);
+            }
+        }
 
     </style>
+    <style>
+        @font-face {
+            font-family: 'Sunflower';
+            font-style: normal;
+            font-weight: 300;
+            src: local('Sunflower Light'), local('Sunflower-Light'), url(https://fonts.gstatic.com/s/sunflower/v9/RWmPoKeF8fUjqIj7Vc-06MfSroEC.ttf) format('truetype');
+        }
 
+        @font-face {
+            font-family: 'Sunflower';
+            font-style: normal;
+            font-weight: 500;
+            src: local('Sunflower Medium'), local('Sunflower-Medium'), url(https://fonts.gstatic.com/s/sunflower/v9/RWmPoKeF8fUjqIj7Vc-0sMbSroEC.ttf) format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Sunflower';
+            font-style: normal;
+            font-weight: 700;
+            src: local('Sunflower Bold'), local('Sunflower-Bold'), url(https://fonts.gstatic.com/s/sunflower/v9/RWmPoKeF8fUjqIj7Vc-0-MDSroEC.ttf) format('truetype');
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            line-height: 1.5;
+        }
+
+        body {
+            background: #1c1c1c;
+        }
+
+        .custom-accordion {
+            background: #212121;
+            color: #FFFFFF;
+            font-family: 'Sunflower', sans-serif;
+            padding-bottom: 2rem;
+        }
+
+        .custom-accordion > .item {
+            padding: 1rem 2rem;
+            margin: 0 auto;
+            max-width: 30rem;
+        }
+
+        .custom-accordion > .item:last-of-type {
+            background: #462521;
+            text-align: center;
+            border-radius: 0.5rem;
+        }
+
+        .custom-accordion > .item:last-of-type > .icon {
+            color: #FFFFFF;
+        }
+
+        .custom-accordion > .item:nth-of-type(6) {
+            padding-bottom: 2rem;
+        }
+
+        .custom-accordion > .item > .icon {
+            color: #462521;
+            font-size: 2rem;
+        }
+
+        .custom-accordion > .item > .title {
+            font-size: 1.5rem;
+        }
+
+        @media screen and (min-width: 800px) and (min-height: 270px) {
+            .custom-accordion {
+                display: table;
+                width: 100%;
+                max-width: 100vw;
+                margin: 0 auto;
+                height: 100vh;
+                max-height: 1000px;
+                overflow: hidden;
+                padding-bottom: 0;
+            }
+
+            .custom-accordion > .item {
+                display: table-cell;
+                position: relative;
+                height: 100%;
+                padding: 2rem 1rem;
+                text-align: center;
+                -webkit-transform-origin: 0 50%;
+                transform-origin: 0 50%;
+                transition: all 0.3s cubic-bezier(0.8, 0.16, 0.42, 0.89);
+            }
+
+            .custom-accordion > .item:hover:not(:last-of-type) {
+                -webkit-transform: scaleX(2) translateX(-1px);
+                transform: scaleX(2) translateX(-1px);
+                box-shadow: 0 0 3rem #301916;
+                background: #212121;
+                border-color: transparent;
+            }
+
+            .custom-accordion > .item:hover + .item {
+                opacity: 0.1;
+            }
+
+            .custom-accordion > .item:hover + .item:last-of-type {
+                opacity: 0.1;
+                background: #212121;
+            }
+
+            .custom-accordion > .item:not(:last-of-type) {
+                border-right: 1px solid #462521;
+            }
+
+            .custom-accordion > .item:last-of-type {
+                background: #212121;
+                width: 25%;
+                border-radius: 0;
+            }
+
+            .custom-accordion > .item:last-of-type .heart-icon {
+                font-size: 6rem;
+            }
+
+            .custom-accordion > .item:hover:last-of-type .heart-icon {
+                -webkit-transform: scale(2);
+                transform: scale(2);
+            }
+
+            .custom-accordion > .item:last-of-type > .title {
+                -webkit-transform: rotate(0) translateX(-50%) translateY(-2.5rem);
+                transform: rotate(0) translateX(-50%) translateY(-2.5rem);
+                padding: 0;
+                text-align: center;
+            }
+
+            .custom-accordion > .item:last-of-type > .content {
+                opacity: 1;
+                -webkit-transform: translateX(-50%) translateY(-50%);
+                transform: translateX(-50%) translateY(-50%);
+            }
+
+            .custom-accordion > .item:hover:not(:last-of-type) > .icon {
+                -webkit-transform: scaleX(0.5);
+                transform: scaleX(0.5);
+            }
+
+            .custom-accordion > .item:hover:not(:last-of-type) > .title {
+                -webkit-transform: scaleX(0.5) translateX(-50%);
+                transform: scaleX(0.5) translateX(-50%);
+                background: #CA2E55;
+                text-align: center;
+                padding: 0;
+            }
+
+            .custom-accordion > .item:hover:not(:last-of-type) > .title > .text {
+                -webkit-transform: translateX(-50%);
+                transform: translateX(-50%);
+                left: 50%;
+            }
+
+            .custom-accordion > .item:hover:not(:last-of-type) > .content {
+                opacity: 1;
+            }
+
+            .custom-accordion > .item > .icon {
+                font-weight: 700;
+                font-size: 2rem;
+                transition: all 0.3s cubic-bezier(0.8, 0.16, 0.42, 0.89);
+                color: #FFFFFF;
+            }
+
+            .custom-accordion > .item > .title {
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                height: 1.5rem;
+                width: 200%;
+                text-align: left;
+                -webkit-transform-origin: 0 50%;
+                transform-origin: 0 50%;
+                -webkit-transform: rotate(-90deg);
+                transform: rotate(-90deg);
+                transition: all 0.3s cubic-bezier(0.8, 0.16, 0.42, 0.89);
+                font-size: 1.2rem;
+            }
+
+            .custom-accordion > .item > .title > .text {
+                position: absolute;
+                left: 2rem;
+                bottom: 0;
+                white-space: nowrap;
+                transition: all 0.3s cubic-bezier(0.8, 0.16, 0.42, 0.89);
+            }
+
+            .custom-accordion > .item > .content {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 200%;
+                height: auto;
+                -webkit-transform: translateX(-50%) translateY(-50%) scaleX(0.5);
+                transform: translateX(-50%) translateY(-50%) scaleX(0.5);
+                transition: all 0.3s cubic-bezier(0.8, 0.16, 0.42, 0.89);
+                opacity: 0;
+                padding: 1rem;
+                pointer-events: none;
+            }
+        }
+
+        .heart-icon {
+            color: #CA2E55;
+            font-size: 3rem;
+            transition: all 0.3s cubic-bezier(0.8, 0.16, 0.42, 0.89);
+        }
+
+        .arrow-7 {
+            margin: 30px;
+        }
+
+        .arrow-7 span {
+            display: block;
+            width: 30px;
+            height: 30px;
+            border-bottom: 5px solid #eeeeee;
+            border-right: 5px solid #eeeeee;
+            transform: rotate(45deg);
+            margin: -16px;
+            animation: arrow-7 2s infinite;
+        }
+
+        .arrow-7 span:nth-child(2) {
+            animation-delay: -0.2s;
+        }
+
+        .arrow-7 span:nth-child(3) {
+            animation-delay: -0.4s;
+        }
+
+        @keyframes arrow-7 {
+            0% {
+                opacity: 0;
+                transform: rotate(45deg) translate(-20px, -20px);
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                transform: rotate(45deg) translate(20px, 20px);
+            }
+        }
+
+        .arrow-7 {
+            margin: 30px;
+        }
+
+        .arrow-7 span {
+            display: block;
+            width: 30px;
+            height: 30px;
+            border-bottom: 5px solid #eeeeee;
+            border-right: 5px solid #eeeeee;
+            transform: rotate(45deg);
+            margin: -16px;
+            animation: arrow-7 2s infinite;
+        }
+
+        .arrow-7 span:nth-child(2) {
+            animation-delay: -0.2s;
+        }
+
+        .arrow-7 span:nth-child(3) {
+            animation-delay: -0.4s;
+        }
+
+        @keyframes arrow-7 {
+            0% {
+                opacity: 0;
+                transform: rotate(45deg) translate(-20px, -20px);
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                transform: rotate(45deg) translate(20px, 20px);
+            }
+        }
+    </style>
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=Mukta:700");
+        * {
+            box-sizing: border-box;
+        }
+        *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Mukta', sans-serif;
+            font-size: 1rem;
+            line-height: 1.5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            min-height: 100vh;
+            background: #212121;
+        }
+
+        button {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+            outline: none;
+            border: 0;
+            vertical-align: middle;
+            text-decoration: none;
+            background: transparent;
+            padding: 0;
+            font-size: inherit;
+            font-family: inherit;
+        }
+        button.learn-more {
+            width: 12rem;
+            height: auto;
+        }
+        button.learn-more .circle {
+            transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+            position: relative;
+            margin: 0;
+            width: 3rem;
+            height: 3rem;
+            background: #fff;
+            border-radius: 1.625rem;
+        }
+        button.learn-more .circle .icon {
+            transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            background: #212121;
+        }
+        button.learn-more .circle .icon.arrow {
+            transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+            left: 0.625rem;
+            width: 1.125rem;
+            height: 0.125rem;
+            background: none;
+        }
+        button.learn-more .circle .icon.arrow::before {
+            position: absolute;
+            content: '';
+            top: -0.25rem;
+            right: 0.0625rem;
+            width: 0.625rem;
+            height: 0.625rem;
+            border-top: 0.125rem solid #212121;
+            border-right: 0.125rem solid #212121;
+            -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+        button.learn-more .button-text {
+            transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 0.75rem 0;
+            margin: 0 0 0 1.85rem;
+            color: #fff;
+            font-weight: 700;
+            line-height: 1.6;
+            text-align: center;
+            text-transform: uppercase;
+        }
+        button:hover .circle {
+            width: 100%;
+        }
+        button:hover .circle .icon.arrow {
+            background: #212121;
+            -webkit-transform: translate(1rem, 0);
+            transform: translate(1rem, 0);
+        }
+        button:hover .button-text {
+            color: #212121;
+        }
+
+        @supports (display: grid) {
+            body {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                grid-gap: 0.625rem;
+                grid-template-areas: ". main main ." ". main main .";
+            }
+
+            #container {
+                grid-area: main;
+                align-self: center;
+                justify-self: center;
+            }
+        }
+    </style>
 </head>
 <body>
-<th:block th:include="fragments/mobile_menu"></th:block>
-
-
-<div style="height: auto">
-    <h1 align="center" style="position: relative; top: 30px;">your corporation</h1>
-    <div class="z-depth-5  containerImg hoverable  container" style=" border-radius: 50px; ">
-        <div align="center" >
-
-            <div th:each="categ:${listCategories}" class="box"style="size: auto">
-                <div class="imgBox" >
-                    <img th:src="${categ.getImageLink()}">
+<section class="background">
+    <canvas id="stars" style="height: 100%; position: absolute;"></canvas>
+    <div class=" content-wrapper " style="position: relative">
+        <div style="position:absolute  ;height: auto ;top: 0;width: 100%;">
+            <th:block th:include="fragments/mobile_menu"></th:block>
+        </div>
+        <h1 align="center" class="white-text content-title fading" style="position: relative;bottom: 50px;">your
+            corporation</h1>
+        <h3 align="center" class="white-text content-subtitle fading" style="position: relative;top: 230px;">what we
+            can</h3>
+        <div class="arrow-7" align="center" style="position: relative;top:250px">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</section>
+<section class="background">
+    <div class=" content-wrapper " style="position: relative">
+        <div class="custom-accordion">
+            <div class="item">
+                <div class="icon">1</div>
+                <div class="title">
+                    <div class="text">Lorem ipsum</div>
                 </div>
-                <div class="details">
-                    <div class="content">
-                        <h2 th:utext="${categ.getName()}">...</h2>
-                        <p th:utext="${categ.getDescription()}"></p>
+                <div class="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi dolor repellendus
+                    quidem! Alias voluptatum enim eius id illum accusamus ut amet rerum delectus
+                </div>
+            </div>
+            <div class="item">
+                <div class="icon">2</div>
+                <div class="title">
+                    <div class="text">Ipsam hic quia</div>
+                </div>
+                <div class="content">Porro explicabo ad molestiae incidunt, corporis doloribus, numquam assumenda
+                    molestias deserunt provident veritatis
+                </div>
+            </div>
+            <div class="item">
+                <div class="icon">3</div>
+                <div class="title">
+                    <div class="text">In impedit</div>
+                </div>
+                <div class="content">Repudiandae non ea nam sint accusamus provident aut nobis excepturi, possimus animi
+                    corrupti debitis porro
+                </div>
+            </div>
+            <div class="item">
+                <div class="icon">4</div>
+                <div class="title">
+                    <div class="text">Consequatur</div>
+                </div>
+                <div class="content">Cum repellendus, aspernatur error eos autem porro asperiores praesentium quae odit
+                    est fugiat suscipit commodi architecto doloribus
+                </div>
+            </div>
+            <div class="item">
+                <div class="icon">5</div>
+                <div class="title">
+                    <div class="text">Reiciendis</div>
+                </div>
+                <div class="content">Laudantium vero ab atque natus et similique? Perferendis unde a voluptates voluptas
+                    tempora quaerat
+                </div>
+            </div>
+            <div class="item">
+                <div class="icon">6</div>
+                <div class="title">
+                    <div class="text">Iure blanditiis</div>
+                </div>
+                <div class="content">Laudantium vero ab atque natus et similique? Perferendis unde a voluptates voluptas
+                    tempora quaerat
+                </div>
+            </div>
+            <div class="item">
+                <div class="icon"></div>
+                <div class="title"></div>
+                    <div id="container" style="position: relative;top: 50vh" >
+                        <button class="learn-more">
+                            <div class="circle">
+                                <span class="icon arrow"></span>
+                            </div>
+                            <p class="button-text">Learn More</p>
+                        </button>
                     </div>
-                </div>
+
             </div>
         </div>
     </div>
+</section>
+<!--<div align="center">
+    <h1 align="center" class=" content-title fading" style="position: relative;bottom: 330px ">what we
+        can</h1>
+    <div th:each="categ:${listCategories}" class="box" style="size: auto">
+        <div class="imgBox">
+            <img th:src="${categ.getImageLink()}">
+        </div>
+        <div class="details">
+            <div class="content">
+                <h2 th:utext="${categ.getName()}">...</h2>
+                <p th:utext="${categ.getDescription()}"></p>
+            </div>
+        </div>
+    </div>-->
 </div>
-<br/>
-<br/>
+<section class="background">
+    <div class="content-wrapper">
+        <p class="content-title">Локация </p>
+        <p class="content-subtitle">Тут будет карта или типо того. Не забыть</p>
+    </div>
+</section>
 
 
-
-<div th:replace="~{fragments/footer :: fragmentFooter}"></div>
 <div class="preloader-background">
     <div class="preloader-wrapper big active">
         <div class="spinner-layer spinner-blue">
@@ -292,6 +820,76 @@
         </div>
     </div>
 </div>
+<script src="http://atuin.ru/js/art/lines.js" type="text/javascript"></script>
+<script src="http://code.jquery.com/jquery-1.12.4.min.js" type="text/javascript"></script>
+<script src="http://atuin.ru/js/art/stars.js" type="text/javascript"></script>
+<script>
+    // ------------- VARIABLES ------------- //
+    var ticking = false;
+    var isFirefox = (/Firefox/i.test(navigator.userAgent));
+    var isIe = (/MSIE/i.test(navigator.userAgent)) || (/Trident.*rv\:11\./i.test(navigator.userAgent));
+    var scrollSensitivitySetting = 30; //Increase/decrease this number to change sensitivity to trackpad gestures (up = less sensitive; down = more sensitive)
+    var slideDurationSetting = 600; //Amount of time for which slide is "locked"
+    var currentSlideNumber = 0;
+    var totalSlideNumber = $(".background").length;
+
+    // ------------- DETERMINE DELTA/SCROLL DIRECTION ------------- //
+    function parallaxScroll(evt) {
+        if (isFirefox) {
+            //Set delta for Firefox
+            delta = evt.detail * (-120);
+        } else if (isIe) {
+            //Set delta for IE
+            delta = -evt.deltaY;
+        } else {
+            //Set delta for all other browsers
+            delta = evt.wheelDelta;
+        }
+
+        if (ticking != true) {
+            if (delta <= -scrollSensitivitySetting) {
+                //Down scroll
+                ticking = true;
+                if (currentSlideNumber !== totalSlideNumber - 1) {
+                    currentSlideNumber++;
+                    nextItem();
+                }
+                slideDurationTimeout(slideDurationSetting);
+            }
+            if (delta >= scrollSensitivitySetting) {
+                //Up scroll
+                ticking = true;
+                if (currentSlideNumber !== 0) {
+                    currentSlideNumber--;
+                }
+                previousItem();
+                slideDurationTimeout(slideDurationSetting);
+            }
+        }
+    }
+
+    // ------------- SET TIMEOUT TO TEMPORARILY "LOCK" SLIDES ------------- //
+    function slideDurationTimeout(slideDuration) {
+        setTimeout(function () {
+            ticking = false;
+        }, slideDuration);
+    }
+
+    // ------------- ADD EVENT LISTENER ------------- //
+    var mousewheelEvent = isFirefox ? "DOMMouseScroll" : "wheel";
+    window.addEventListener(mousewheelEvent, _.throttle(parallaxScroll, 60), false);
+
+    // ------------- SLIDE MOTION ------------- //
+    function nextItem() {
+        var $previousSlide = $(".background").eq(currentSlideNumber - 1);
+        $previousSlide.removeClass("up-scroll").addClass("down-scroll");
+    }
+
+    function previousItem() {
+        var $currentSlide = $(".background").eq(currentSlideNumber);
+        $currentSlide.removeClass("down-scroll").addClass("up-scroll");
+    }
+</script>
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         $('.preloader-background').delay(1000).fadeOut('slow');
@@ -301,9 +899,26 @@
             .fadeOut();
     });
 </script>
+<script>
+    let fadingHeading = document.querySelectorAll('.fading');
+    for (let a = 0; a < fadingHeading.length; a++) {
+        let letters = fadingHeading[a].textContent.split('');
+        let content = letters.map((val, i) => {
+            let delay = Math.floor((Math.random() * 1000) + 1);
+            return ('<span style="animation-delay: ' + delay + 'ms">' + val + '</span>');
+        });
+        fadingHeading[a].innerHTML = "";
+        for (let i = 0; i < content.length; i++) {
+            fadingHeading[a].innerHTML += content[i];
+        }
+    }
+</script>
+<script src="http://code.jquery.com/jquery-1.12.4.min.js" type="text/javascript"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
 
 </body>
-</html>							
+</html>
 
-							
