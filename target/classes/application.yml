@@ -1,0 +1,12 @@
+#google drive api
+google:
+  service_account_email: metalphoto@metalphoto.iam.gserviceaccount.com
+  application_name: MetalPhoto
+  folder_id: 1ICpxXF3PuHDVlHDJgwA81WgnpmTAUTXS
+  service_account_key:
+
+amazonProperties:
+  endpointUrl: https://s3.eu-central-1.amazonaws.com
+  accessKey: AKIATMYDFE6D2VRV5LVE
+  secretKey: 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
+  bucketName: metalbucket

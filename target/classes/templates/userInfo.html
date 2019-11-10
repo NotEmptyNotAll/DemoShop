@@ -1,0 +1,391 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+
+    <title>User Info</title>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection"/>
+    <script type="text/javascript"
+            src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css" rel="stylesheet"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+
+
+    <script>
+        $(document).ready(function () {
+            $('select').material_select();
+        });
+    </script>
+
+    <style rel="stylesheet">
+        /* Cool infinite background scrolling animation.
+       * Twitter: @kootoopas
+       */
+        /* Exo thin font from Google. */
+        @import url(https://fonts.googleapis.com/css?family=Exo:100);
+        /* Background data (Original source: https://subtlepatterns.com/grid-me/) */
+        /* Animations */
+        @-webkit-keyframes bg-scrolling-reverse {
+            100% {
+                background-position: 50px 50px;
+            }
+        }
+
+        @-moz-keyframes bg-scrolling-reverse {
+            100% {
+                background-position: 50px 50px;
+            }
+        }
+
+        @-o-keyframes bg-scrolling-reverse {
+            100% {
+                background-position: 50px 50px;
+            }
+        }
+
+        @keyframes bg-scrolling-reverse {
+            100% {
+                background-position: 50px 50px;
+            }
+        }
+
+        @-webkit-keyframes bg-scrolling {
+            0% {
+                background-position: 50px 50px;
+            }
+        }
+
+        @-moz-keyframes bg-scrolling {
+            0% {
+                background-position: 50px 50px;
+            }
+        }
+
+        @-o-keyframes bg-scrolling {
+            0% {
+                background-position: 50px 50px;
+            }
+        }
+
+        @keyframes bg-scrolling {
+            0% {
+                background-position: 50px 50px;
+            }
+        }
+
+        /* Main styles */
+        body {
+            color: #999;
+            /* img size is 50x50 */
+            background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAIAAACRXR/mAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAABnSURBVHja7M5RDYAwDEXRDgmvEocnlrQS2SwUFST9uEfBGWs9c97nbGtDcquqiKhOImLs/UpuzVzWEi1atGjRokWLFi1atGjRokWLFi1atGjRokWLFi1af7Ukz8xWp8z8AAAA//8DAJ4LoEAAlL1nAAAAAElFTkSuQmCC") repeat 0 0;
+            -webkit-animation: bg-scrolling-reverse .92s infinite;
+            /* Safari 4+ */
+            -moz-animation: bg-scrolling-reverse .92s infinite;
+            /* Fx 5+ */
+            -o-animation: bg-scrolling-reverse .92s infinite;
+            /* Opera 12+ */
+            animation: bg-scrolling-reverse .92s infinite;
+            /* IE 10+ */
+            -webkit-animation-timing-function: linear;
+            -moz-animation-timing-function: linear;
+            -o-animation-timing-function: linear;
+            animation-timing-function: linear;
+        }
+
+        body::before {
+
+        }
+
+    </style>
+
+
+    <style>
+
+
+        ::-webkit-scrollbar { /* chrome based */
+            width: 0px; /* ширина scrollbar'a */
+            background: transparent; /* опционально */
+        }
+
+        html {
+            -ms-overflow-style: none; /* IE 10+ */
+            scrollbar-width: none; /* Firefox */
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+
+        hr {
+            border: none; /* Убираем границу для браузера Firefox */
+            color: violet; /* Цвет линии для остальных браузеров */
+            background-color: violet; /* Цвет линии для браузера Firefox и Opera */
+            height: 1px; /* Толщина линии */
+        }
+
+        .dropdown-content li > a, .dropdown-content li > span {
+
+            color: white !important;
+            background-color: #616161;
+            border-color: #424242;
+        }
+
+
+    </style>
+    <style>
+
+        .preloader-background {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #eee;
+            position: fixed;
+            z-index: 999;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+
+        p {
+            padding-top: 120px;
+            margin-left: -60px;
+            opacity: 0.8;
+        }
+
+        }
+
+        /
+        /
+        ADD BLINKING TEXT CLASS
+        .blinking {
+            animation: blinker 0.5s linear infinite;
+        }
+
+        @keyframes blinker {
+            50% {
+                opacity: 0;
+            }
+        }
+    </style>
+
+
+</head>
+
+<body class="black-text">
+
+<!-- Include mobile_menu.html -->
+<th:block th:include="fragments/_menu"></th:block>
+
+<div class="container z-depth-5 hoverable" style="background: white;border-radius: 50px;height: auto">
+
+
+    <div style="position:relative;left: 20px;top:30px">
+        <div class="container">
+            <h4 align="center">заказы</h4>
+            <hr style="color: #e0e0e0;background-color:#e0e0e0 ">
+        </div>
+        <blockquote style="position: relative;top:20px;">
+            <h5>добро пожаловать <span th:utext="${#request.userPrincipal.name}"></span></h5>
+        </blockquote>
+    </div>
+    <br/><br/>
+    <br/><br/>
+</div>
+<div class="fixed-action-btn">
+    <a href="#modal1" class="btn-floating btn-large tooltipped modal-trigger red" data-position="left"
+       data-tooltip="добавить заказ"><i class="material-icons">add</i></a>
+</div>
+
+<div style="height: 5vh"></div>
+<div class="container z-depth-5 hoverable" style="background: white;border-radius: 50px">
+    <table class="  centered " align="center" style="width: 90%">
+        <thead>
+        <tr align="center">
+            <th> номер заказа</th>
+            <th>описание работы</th>
+            <th>дата заказа</th>
+            <th>желательная дата выдачи</th>
+            <th>
+                фото
+            </th>
+        </tr>
+        </thead>
+        <tr class="hoverable" align="center" th:each="order:${orders}" style="border-radius: 30px">
+            <td th:utext="${order.getId()}" style="width: 10vh">...</td>
+            <td style="width: 40vh">
+                <textarea name="comment" readonly th:utext="${order.getOrderText()}"
+                          style="border: none;   resize: none;">...</textarea>
+            </td>
+            <td th:utext="${order.getBirthDate()}" style="width: 20vh">...</td>
+            <td th:utext="${order.getDeadlines()}" style="width: 20vh">...</td>
+            <td style="width: 10vh">
+                <img class="materialboxed" width="150" th:src="${order.getImageLink()}" style="border-radius: 30px">
+            </td>
+        </tr>
+    </table>
+    <div class="row" style="height: 10px"></div>
+</div>
+
+<div style="min-height: 50px"></div>
+
+<div style="min-height: 50px"></div>
+
+<!-- Modal Structure -->
+<div id="modal1" class="modal" style="background: #424242 ">
+    <div class="modal-content white-text">
+        <h5 align="center  ">Ваш заказ </h5>
+        <hr>
+        <h6 align="center" th:utext="${date}">...</h6>
+        <div class="container">
+
+
+            <form th:action="@{/userInfo}" enctype="multipart/form-data" th:object="${orderDto}" method="post">
+
+
+                <div class="row">
+
+                    <div class="file-field input-field">
+                        <div class="btn">
+                            <span>File</span>
+                            <input type="file" name="file">
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text">
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="row">
+                    <div class="col s12">
+                        <textarea align="center" class="form-control" th:field="*{orderText}"></textarea>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col s12">
+
+                        <input type="text" th:field="*{deadline}" class="datepicker">
+                    </div>
+                </div>
+
+                <div align="center" class="form-group">
+                    <button align="center" type="submit" class="btn btn-success">отправить заказ</button>
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+    <hr style="position: relative;top:8px">
+    <div class="modal-footer white-text" style="background: #212121 ">
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat" style="color: white">Close</a>
+    </div>
+</div>
+
+
+<th:block th:include="fragments/footer"></th:block>
+
+
+<div class="preloader-background">
+    <div class="preloader-wrapper big active">
+        <div class="spinner-layer spinner-blue">
+            <div class="circle-clipper left">
+                <div class="circle"></div>
+            </div>
+            <div class="gap-patch">
+                <div class="circle"></div>
+            </div>
+            <div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+        </div>
+
+        <div class="spinner-layer spinner-red">
+            <div class="circle-clipper left">
+                <div class="circle"></div>
+            </div>
+            <div class="gap-patch">
+                <div class="circle"></div>
+            </div>
+            <div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+        </div>
+
+        <div class="spinner-layer spinner-yellow">
+            <div class="circle-clipper left">
+                <div class="circle"></div>
+            </div>
+            <div class="gap-patch">
+                <div class="circle"></div>
+            </div>
+            <div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+        </div>
+
+        <div class="spinner-layer spinner-green">
+            <div class="circle-clipper left">
+                <div class="circle"></div>
+            </div>
+            <div class="gap-patch">
+                <div class="circle"></div>
+            </div>
+            <div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        $('.preloader-background').delay(1000).fadeOut('slow');
+
+        $('.preloader-wrapper')
+            .delay(1000)
+            .fadeOut();
+    });
+</script>
+
+
+<!-- Compiled and minified JavaScript -->
+<script>
+
+    $(document).ready(function () {
+        $('.modal').modal();
+    });
+
+</script>
+<script>
+    $('.dropdown-trigger').dropdown();
+
+</script>
+<script>
+    $('.materialboxed').materialbox();
+</script>
+<script>
+
+
+    document.addEventListener('DOMContentLoaded', function () {
+        var elems = document.querySelectorAll('.datepicker');
+        M.Datepicker.init(elems, options);
+    });
+
+
+</script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="../static/js/jquery-3.4.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+</body>
+
+</html>
