@@ -465,7 +465,7 @@
 
 </div>
 
-<div id="modal1" class="modal" style="background: #424242 ">
+<div id="modal1" class="modal" style="background: #424242;width: 90%;height: 90%">
     <div class="modal-content white-text">
         <h5 align="center">поиск по продуктам</h5>
         <hr>
@@ -483,33 +483,39 @@
             </div>
         </div>
 
-        <div class="container">
 
-            <div class=" col s2 m3 l2 card  " th:each="product:${listProduct}"
-                 style="background-color: #424242;height: 200px;width:300px ">
-                <div class="card-image waves-effect waves-block waves-light "
-                     style="height: 200px;width:300px ">
-                    <img class="activator  responsive-img card" th:src="${product.getImageLink()}"
-                         style="height: 85%;width:100%">
-                </div>
-                <div class="card-content ">
-                            <span class="card-title activator grey-text text-white-4 "
-                                  th:utext="${product.getName()}"><i class="material-icons right">more_vert</i></span>
-                </div>
-                <div class="card-reveal" style="background-color: #424242">
-                        <span class="card-title grey-text text-white-4">Card Title<i
-                                class="material-icons right">close</i></span>
-                    <p>Here is some more information about this product that is only revealed once clicked on.</p>
-                    <div th:each="att:${product.getAttributes()}" class="row white-text hoverable"
-                         style="background-color: #424242">
-                        <input type="checkbox"/>
-                        <h3 th:utext="${att.getName()}">...</h3>
-                        <h3 th:utext="${att.getPrice()}">...</h3>
+            <div class="cards black-text">
+
+                <div class="card hoverable" th:each="prod:${listProduct}">
+                    <img class="card__image" th:src="${prod.getImageLink()}" alt="wave"/>
+                    <div class="card-title">
+                        <a href="#" class="toggle-info btn">
+                            <span class="left"></span>
+                            <span class="right"></span>
+                        </a>
+                        <h2>
+                            <span th:utext="${prod.getName()}"></span>
+                            <small>
+                                цена за один продукт:
+                                <span th:utext="${prod.getPrimaryPrice()}">...</span>
+                            </small>
+                        </h2>
                     </div>
+                    <div class="card-flap flap1">
+                        <div class="card-description">
+
+                            <div th:each="att:${prod.getAttributes()}" class="radio">
+                                <input type="radio" class="hidden"/>
+                                <span th:utext="${att.getName()}+'   '"></span>
+                                <span th:utext="${att.getPrice()}"></span>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
-        </div>
+
     </div>
     <hr style="position: relative;top:8px">
     <div class="modal-footer white-text fixed" style="background: #212121 ">
