@@ -1,66 +1,58 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
-<style>
-
-</style>
 <head>
 
 </head>
 
 <body>
-<div class="content"></div>
+
 <div th:fragment="fragmentMenu">
     <div xmlns:th="http://www.thymeleaf.org">
-        <nav class="h-menu bg-red fg-white " style="background-color: #212121;z-index:3    ">
+        <nav class="h-menu bg-red fg-white " style="background-color: #212121;z-index:3   ">
 
             <div class="nav-wrapper    " align="center">
-                <a href="#" class="sidenav-trigger  " data-target="mobile-links">
-                    <i class="material-icons ">menu</i>
-                </a>
-                <ul id="nav" class="left hide-on-med-and-down menu">
-                    <li><a class="nav-link " th:href="@{/}">Home</a></li>
-                    <li><a class="nav-link " th:href="@{/userInfo}">User Info</a></li>
-                    <li><a class="nav-link " th:href="@{/product}">Product</a></li>
-                    <li><a class="nav-link " th:href="@{/admin}">Admin</a></li>
-                    <li><a class="nav-link " th:if="${#request.userPrincipal == null}"
-                           th:href="@{/registration}">Registration</a></li>
-                    <li><a class="nav-link " th:if="${#request.userPrincipal != null}" th:href="@{/stock}">Stock</a>
+                <ul id="nav-mobile" class="left hide-on-med-and-down me">
+
+                    <li><a class="navbar-brand hoverable" th:href="@{/}">Home</a>
                     </li>
-                    <li class="slider"></li>
+                    <li>
+                        <a class="nav-link hoverable" th:href="@{/userInfo}">User Info</a>
+                    </li>
+
+                    <li>
+                        <a class="nav-link hoverable" th:href="@{/product}">Product</a>
+                    </li>
+                    <li>
+                        <a class="nav-link hoverable" th:href="@{/admin}">Admin</a>
+                    </li>
+
+                    <li>
+                        <a class="nav-link hoverable" th:if="${#request.userPrincipal == null}"
+                           th:href="@{/registration}">Registration</a>
+                    </li>
+
+                    <li>
+                        <a class="nav-link hoverable" th:if="${#request.userPrincipal != null}" th:href="@{/stock}">Stock</a>
+                    </li>
 
                 </ul>
                 <ul class="right hide-on-med-and-down">
+
                     <li>
-                        <a class="nav-link  waves-effect waves-light btn "
+                        <a class="nav-link hoverable waves-effect waves-light btn"
                            th:if="${#request.userPrincipal == null}" th:href="@{/login}"
-                           style="background: #00e676 ; border-radius: 30px; position:relative;right: 10px;">Login</a>
+                           style="background: #64dd17; border-radius: 30px; position:relative;right: 10px;">Login</a>
                     </li>
+
                     <li>
-                        <a class="nav-link  waves-effect waves-light btn"
+                        <a class="nav-link hoverable waves-effect waves-light btn"
                            th:if="${#request.userPrincipal != null}" th:href="@{/logout}"
                            style="background: #d50000;border-radius: 30px; position:relative;right: 10px; ">Logout</a>
                     </li>
-
                 </ul>
             </div>
         </nav>
-        <ul class="sidenav" id="mobile-links">
-            <li><a th:href="@{/}">Home</a></li>
-            <li><a th:href="@{/userInfo}">User Info</a></li>
-            <li><a th:href="@{/product}">Product</a></li>
-            <li><a th:href="@{/admin}">Admin</a></li>
-            <li><a th:if="${#request.userPrincipal == null}"
-                   th:href="@{/registration}">Registration</a></li>
-            <li><a th:if="${#request.userPrincipal != null}" th:href="@{/stock}">Stock</a>
-            </li>
-        </ul>
     </div>
-    <script>
-        $(document).ready(function () {
-            $('.sidenav').sidenav();
-        })
-
-    </script>
 </div>
 
 </body>
