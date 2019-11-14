@@ -426,11 +426,7 @@
 
     </style>
     <style>
-        .activeMenu {
-            color: #616161;
-            background-color: #616161;
 
-        }
 
         #nav {
             position: fixed;
@@ -459,29 +455,23 @@
             margin-top: 80px;
         }
 
-        nav.nav-center ul {
-            text-align: center;
-        }
 
-        nav.nav-center ul li {
-            display: inline;
-            float: none;
-        }
+        .activeMenu {
+            color: #616161;
+            background-color: #616161;
 
-        nav.nav-center ul li a {
-            display: inline-block;
         }
     </style>
 
 
 </head>
-<body>
+<body style="background-color: #212121">
 <!--<th:block th:include="fragments/_menu"></th:block>-->
 
 <div xmlns:th="http://www.thymeleaf.org">
 
 </div>
-<nav class="h-menu bg-red fg-white " style="background-color: #212121;z-index:3   ">
+<nav class="h-menu bg-red fg-white " style="background-color: #212121;z-index:999;   ">
 
     <div class="nav-wrapper    " align="center">
         <ul id="nav-mobile" class="left hide-on-med-and-down me">
@@ -504,19 +494,19 @@
                 </button>
             </li>
             <li>
-                <button class="nav-link hoverable waves-effect waves-light btn"
+                <button class="nav-link hoverable waves-effect waves-light  btn"
                         th:if="${#request.userPrincipal != null}" th:href="@{/logout}"
-                        style="background: #d50000;border-radius: 30px; position:relative;right: 10px; ">Logout
+                        style="background: #d50000;border-radius: 30px;  position:relative;right: 10px; ">Logout
                 </button>
             </li>
         </ul>
     </div>
 </nav>
 
-<nav class="h-menu bg-red fg-white  nav-center header " style="background-color: #212121;z-index:999   ">
+<nav class="h-menu bg-red fg-white  nav-center header hide " style="background-color: #212121;z-index:999   ">
     <ul class="white-text center">
         <li th:each="categ:${listCategories}"><a th:href="'#'+${categ.getName()}"
-                                                 th:utext="${categ.getName()}">...</a></li>
+                                                 th:utext="${categ.getName()}" style="width: auto">...</a></li>
     </ul>
 </nav>
 <div id="modal1" class="    modal" style="background: #424242;width: 90%;height: 90%">
@@ -579,17 +569,14 @@
     </div>
 </div>
 
-
-<div th:each="categ:${listCategories}" th:id="${categ.getName()}" class="section scrollspy">
-
-    <div th:id="${categ.getName()}">
+<div th:each="categ:${listCategories}" th:id="${categ.getName()}" style="z-index: 999;height: auto;background-color: #212121" class="section scrollspy">
         <div class="parallax-container" style="z-index: 0">
             <div class=" parallax ">
                 <img th:src="${categ.getImageLink()}">
             </div>
         </div>
 
-        <div class="section" style=" height: auto;  background: #212121;overflow: auto;opacity: 0.8; z-index: 0; ">
+        <div class="section" style=" height: auto;  background: #212121;overflow: auto; z-index: 0; ">
 
             <h4 class="white-text" th:utext="${categ.getName()}" align="center">...</h4>
             <hr>
@@ -654,10 +641,9 @@
 
 
         -->
-    </div>
 
 
-</div>
+
 </div>
 
 
