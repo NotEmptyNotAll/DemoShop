@@ -304,8 +304,8 @@
                         <div align="center">Удалить</div>
                     </th>
                 </tr>
-                <div th:each="prod:${categ.getProducts()}">
-                    <tr class="tableItem hoverable" style="border-radius: 30px">
+                <div th:each="prod:${categ.getProducts()}" style="height: auto">
+                    <tr class="tableItem hoverable" style="border-radius: 30px;height: auto">
                         <td th:utext="${prod.getProduct_id()}">...</td>
                         <td th:utext="${prod.getName()}">...</td>
                         <td th:utext="${prod.getPrimaryPrice()}">...</td>
@@ -342,7 +342,7 @@
 
                                                 <tr class="">
                                                     <form th:action="@{/addAttribute}" th:object="${attributeDto}"
-                                                          method="post">
+                                                          method="post" style="height: auto ">
                                                         <td>
                                                             <div class="row">
                                                                 <div class="form-group input-field inline col s12">

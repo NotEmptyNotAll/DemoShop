@@ -425,47 +425,98 @@
 
 
     </style>
+    <style>
+        .activeMenu {
+            color: #616161;
+            background-color: #616161;
+
+        }
+
+        #nav {
+            position: fixed;
+            top: 0;
+            right: 50%;
+        }
+
+        section {
+            min-height: 500px;
+        }
+
+        .header {
+            top: -80px;
+            transition: top 1s;
+            text-align: center;
+        }
+
+        .header.fixed {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            background: rgba(100, 100, 100, 0.75)
+        }
+
+        .header.fixed ~ .wrap {
+            margin-top: 80px;
+        }
+        nav.nav-center ul {
+            text-align: center;
+        }
+        nav.nav-center ul li {
+            display: inline;
+            float: none;
+        }
+        nav.nav-center ul li a {
+            display: inline-block;
+        }
+    </style>
+
+
 </head>
 <body>
 <!--<th:block th:include="fragments/_menu"></th:block>-->
 
 <div xmlns:th="http://www.thymeleaf.org">
-    <nav class="h-menu bg-red fg-white " style="background-color: #212121;z-index:3    ">
-
-        <div class="nav-wrapper    " align="center">
-            <ul id="nav" class="left hide-on-med-and-down menu">
-                <li><a class="nav-link " th:href="@{/}">Home</a></li>
-                <li><a class="nav-link " th:href="@{/userInfo}">User Info</a></li>
-                <li><a class="nav-link " th:href="@{/product}">Product</a></li>
-                <li><a class="nav-link " th:href="@{/admin}">Admin</a></li>
-                <li><a class="nav-link " th:if="${#request.userPrincipal == null}"
-                       th:href="@{/registration}">Registration</a></li>
-                <li><a class="nav-link " th:if="${#request.userPrincipal != null}" th:href="@{/stock}">Stock</a>
-                </li>
-                <li >                <a class="nav-link " href="#modal1">search</a>
-
-                </li>
-
-            </ul>
-            <ul class="right hide-on-med-and-down">
-                <li>
-                    <a class="nav-link  waves-effect waves-light btn "
-                       th:if="${#request.userPrincipal == null}" th:href="@{/login}"
-                       style="background: #00e676 ; border-radius: 30px; position:relative;right: 10px;">Login</a>
-                </li>
-                <li>
-                    <a class="nav-link  waves-effect waves-light btn"
-                       th:if="${#request.userPrincipal != null}" th:href="@{/logout}"
-                       style="background: #d50000;border-radius: 30px; position:relative;right: 10px; ">Logout</a>
-                </li>
-
-            </ul>
-        </div>
-    </nav>
 
 </div>
+<nav class="h-menu bg-red fg-white " style="background-color: #212121;z-index:3   ">
 
-<div id="modal1" class="modal" style="background: #424242;width: 90%;height: 90%">
+    <div class="nav-wrapper    " align="center">
+        <ul id="nav-mobile" class="left hide-on-med-and-down me">
+
+            <li><a class="navbar-brand hoverable" th:href="@{/}">Home</a></li>
+            <li><a class="nav-link hoverable" th:href="@{/userInfo}">User Info</a></li>
+            <li><a class="nav-link hoverable" th:href="@{/product}">Product</a></li>
+            <li><a class="nav-link hoverable" th:href="@{/admin}">Admin</a></li>
+            <li><a class="nav-link hoverable" th:if="${#request.userPrincipal == null}"
+                   th:href="@{/registration}">Registration</a></li>
+            <li><a class="nav-link hoverable" th:if="${#request.userPrincipal != null}" th:href="@{/stock}">Stock</a>
+            </li>
+            <li><a class="nav-link hoverable" href="#modal1"><i class="material-icons">search</i></a></li>
+        </ul>
+        <ul class="right hide-on-med-and-down">
+            <li>
+                <button class="nav-link  hoverable waves-effect waves-light btn"
+                        th:if="${#request.userPrincipal == null}" th:href="@{/login}"
+                        style="background: #64dd17; border-radius: 30px; position:relative;right: 10px;">Login
+                </button>
+            </li>
+            <li>
+                <button class="nav-link hoverable waves-effect waves-light btn"
+                        th:if="${#request.userPrincipal != null}" th:href="@{/logout}"
+                        style="background: #d50000;border-radius: 30px; position:relative;right: 10px; ">Logout
+                </button>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<nav class="h-menu bg-red fg-white  nav-center header " style="background-color: #212121;z-index:999   ">
+        <ul class="white-text center" >
+            <li th:each="categ:${listCategories}"><a th:href="'#'+${categ.getName()}"
+                                                     th:utext="${categ.getName()}">...</a></li>
+        </ul>
+</nav>
+<div id="modal1" class="    modal" style="background: #424242;width: 90%;height: 90%">
     <div class="modal-content white-text">
         <h5 align="center">поиск по продуктам</h5>
         <hr>
@@ -484,36 +535,36 @@
         </div>
 
 
-            <div class="cards black-text">
+        <div class="cards black-text  container elastic" style="min-height: 100%">
 
-                <div class="card hoverable" th:each="prod:${listProduct}">
-                    <img class="card__image" th:src="${prod.getImageLink()}" alt="wave"/>
-                    <div class="card-title">
-                        <a href="#" class="toggle-info btn">
-                            <span class="left"></span>
-                            <span class="right"></span>
-                        </a>
-                        <h2>
-                            <span th:utext="${prod.getName()}"></span>
-                            <small>
-                                цена за один продукт:
-                                <span th:utext="${prod.getPrimaryPrice()}">...</span>
-                            </small>
-                        </h2>
-                    </div>
-                    <div class="card-flap flap1">
-                        <div class="card-description">
+            <div class="card hoverable" th:each="prod:${listProduct}">
+                <img class="card__image" th:src="${prod.getImageLink()}" alt="wave"/>
+                <div class="card-title">
+                    <a href="#" class="toggle-info btn">
+                        <span class="left"></span>
+                        <span class="right"></span>
+                    </a>
+                    <h2>
+                        <span class="textSearch" th:utext="${prod.getName()}"></span>
+                        <small>
+                            цена за один продукт:
+                            <span th:utext="${prod.getPrimaryPrice()}">...</span>
+                        </small>
+                    </h2>
+                </div>
+                <div class="card-flap flap1">
+                    <div class="card-description">
 
-                            <div th:each="att:${prod.getAttributes()}" class="radio">
-                                <input type="radio" class="hidden"/>
-                                <span th:utext="${att.getName()}+'   '"></span>
-                                <span th:utext="${att.getPrice()}"></span>
-                            </div>
+                        <div th:each="att:${prod.getAttributes()}" class="radio">
+                            <input type="radio" class="hidden"/>
+                            <span th:utext="${att.getName()}+'   '"></span>
+                            <span th:utext="${att.getPrice()}"></span>
                         </div>
                     </div>
-
                 </div>
+
             </div>
+        </div>
 
 
     </div>
@@ -524,7 +575,7 @@
 </div>
 
 
-<div th:each="categ:${listCategories}" class="">
+<div th:each="categ:${listCategories}" th:id="${categ.getName()}" class="section scrollspy">
 
     <div th:id="${categ.getName()}">
         <div class="parallax-container" style="z-index: 0">
@@ -599,6 +650,7 @@
 
         -->
     </div>
+
 
 </div>
 </div>
@@ -789,6 +841,82 @@
             }
 
         });
+    });
+</script>
+<script>
+    document.querySelector('#elastic').oninput = function () {
+        let val = this.value.trim();
+        let elasticItem = document.querySelectorAll('.elastic .card');
+        let elasticTextItem = document.querySelectorAll('.textSearch');
+        if (val != '') {
+            for (let i = 0; i < elasticItem.length; i++) {
+                if (elasticTextItem[i].innerText.search(val) == -1) {
+                    console.log("value, ", elasticTextItem[i].innerText);
+                    elasticItem[i].classList.add('hide');
+                } else {
+                    elasticItem[i].classList.remove('hide');
+                }
+
+            }
+
+        } else {
+            for (let i = 0; i < elasticItem.length; i++) {
+                elasticItem[i].classList.remove('hide');
+            }
+
+        }
+    }
+</script>
+<script>
+
+    (function () {
+        var navLinks = $('nav ul li a'),
+            navH = $('nav').height(),
+            section = $('section'),
+            documentEl = $(document);
+
+        documentEl.on('scroll', function () {
+            var currentScrollPos = documentEl.scrollTop();
+
+            section.each(function () {
+                var self = $(this);
+                if (self.offset().top < (currentScrollPos + navH) && (currentScrollPos + navH) < (self.offset().top + self.outerHeight())) {
+                    var targetClass = '.' + self.attr('class') + '-marker';
+                    navLinks.removeClass('activeMenu');
+                    $(targetClass).addClass('activeMenu');
+                }
+            });
+
+        });
+
+
+    })();
+
+</script>
+<script>
+    $(window).bind('scroll', function () {
+        var currentTop = $(window).scrollTop();
+        var elems = $('.scrollspy');
+        elems.each(function (index) {
+            var elemTop = $(this).offset().top;
+            var elemBottom = elemTop + $(this).height();
+            if (currentTop >= elemTop && currentTop <= elemBottom) {
+                var id = $(this).attr('id');
+                var navElem = $('a[href="#' + id + '"]');
+                navElem.parent().addClass('activeMenu').siblings().removeClass('activeMenu');
+            }
+        })
+    });
+</script>
+<script>
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 70) {
+            $('.header').addClass('fixed');
+            $('.header').removeClass('hide');
+        } else {
+            $('.header').removeClass('fixed');
+            $('.header').addClass('hide');
+        }
     });
 </script>
 
