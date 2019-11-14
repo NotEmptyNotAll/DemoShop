@@ -510,7 +510,7 @@
     </div>
 </nav>
 
-<nav class="h-menu bg-red fg-white  nav-center header " style="background-color: #212121;z-index:999   ">
+<nav class="h-menu bg-red fg-white  nav-center header " style="background-color: #212121;opacity:0.9;z-index:999   ">
         <ul class="white-text center" >
             <li th:each="categ:${listCategories}"><a th:href="'#'+${categ.getName()}"
                                                      th:utext="${categ.getName()}">...</a></li>
@@ -575,7 +575,7 @@
 </div>
 
 
-<div th:each="categ:${listCategories}" th:id="${categ.getName()}" class="section scrollspy">
+<div th:each="categ:${listCategories}" th:id="${categ.getName()}"  class="section scrollspy">
 
     <div th:id="${categ.getName()}">
         <div class="parallax-container" style="z-index: 0">
@@ -584,7 +584,7 @@
             </div>
         </div>
 
-        <div class="section" style=" height: auto;  background: #212121;overflow: auto; z-index: 0; ">
+        <div class="section" style=" height: auto;  background: #212121;overflow: auto;opacity: 0.8; z-index: 0; ">
 
             <h4 class="white-text" th:utext="${categ.getName()}" align="center">...</h4>
             <hr>

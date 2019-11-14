@@ -843,12 +843,20 @@
             }
 
     </style>
+    <style>
+        /* Set the size of the div element that contains the map */
+        #map {
+
+
+            height: 80vh;  /* The height is 400 pixels */
+            width: 100vw;  /* The width is the width of the web page */
+        }
+    </style>
 </head>
 <body>
 <section class="background">
     <div class=" content-wrapper " style="position: relative">
         <canvas id="stars" style="height: 100%; position: absolute;"></canvas>
-
         <div style="position:absolute  ;height: auto ;top: 0;width: 100%;">
             <th:block th:include="fragments/mobile_menu"></th:block>
         </div>
@@ -865,6 +873,7 @@
 </section>
 <section class="background" style="background-color: #212121">
     <div class=" content-wrapper " style="position: relative">
+        <h2 style="position: relative;top:5vh;">5 advantages of the company</h2>
         <div class="cont s--inactive">
             <!-- cont inner start -->
             <div class="cont__inner">
@@ -1000,8 +1009,8 @@
 </div>
 <section class="background">
     <div class="content-wrapper">
-        <p class="content-title">Локация </p>
-        <p class="content-subtitle">Тут будет карта или типо того. Не забыть</p>
+        <p class="content-title " style="position:relative;bottom: 5vh;">Локация </p>
+        <div id="map"  style="position: center;"></div>
     </div>
 </section>
 
@@ -1180,7 +1189,26 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.min.js"></script>
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-
+<script>
+    // Initialize and add the map
+    function initMap() {
+        // The location of Uluru
+        var uluru = {lat: 50.4380028, lng: 30.439512500000003};
+        // The map, centered at Uluru
+        var map = new google.maps.Map(
+            document.getElementById('map'), {zoom: 4, center: uluru});
+        // The marker, positioned at Uluru
+        var marker = new google.maps.Marker({position: uluru, map: map});
+    }
+</script>
+<!--Load the API from the specified URL
+* The async attribute allows the browser to render the page while the API loads
+* The key parameter will contain your own API key (which is not needed for this tutorial)
+* The callback parameter executes the initMap() function
+-->
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCIIMsHIQt4vKfJnkcz5zqjOdlKe_tUbws&callback=initMap">
+</script>
 
 </body>
 </html>
