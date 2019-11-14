@@ -458,13 +458,16 @@
         .header.fixed ~ .wrap {
             margin-top: 80px;
         }
+
         nav.nav-center ul {
             text-align: center;
         }
+
         nav.nav-center ul li {
             display: inline;
             float: none;
         }
+
         nav.nav-center ul li a {
             display: inline-block;
         }
@@ -510,11 +513,11 @@
     </div>
 </nav>
 
-<nav class="h-menu bg-red fg-white  nav-center header " style="background-color: #212121;opacity:0.9;z-index:999   ">
-        <ul class="white-text center" >
-            <li th:each="categ:${listCategories}"><a th:href="'#'+${categ.getName()}"
-                                                     th:utext="${categ.getName()}">...</a></li>
-        </ul>
+<nav class="h-menu bg-red fg-white  nav-center header " style="background-color: #212121;z-index:999   ">
+    <ul class="white-text center">
+        <li th:each="categ:${listCategories}"><a th:href="'#'+${categ.getName()}"
+                                                 th:utext="${categ.getName()}">...</a></li>
+    </ul>
 </nav>
 <div id="modal1" class="    modal" style="background: #424242;width: 90%;height: 90%">
     <div class="modal-content white-text">
@@ -548,7 +551,7 @@
                         <span class="textSearch" th:utext="${prod.getName()}"></span>
                         <small>
                             цена за один продукт:
-                            <span th:utext="${prod.getPrimaryPrice()}">...</span>
+                            <span th:utext="${prod.getPrimaryPrice()}+' грн'">...</span>
                         </small>
                     </h2>
                 </div>
@@ -557,8 +560,10 @@
 
                         <div th:each="att:${prod.getAttributes()}" class="radio">
                             <input type="radio" class="hidden"/>
-                            <span th:utext="${att.getName()}+'   '"></span>
-                            <span th:utext="${att.getPrice()}"></span>
+                            <h4>
+                                <span th:utext="${att.getName()}+'   + к начальной стоимости  '"></span>
+                                <span th:utext="${att.getPrice()}"></span>
+                            </h4>
                         </div>
                     </div>
                 </div>
@@ -575,7 +580,7 @@
 </div>
 
 
-<div th:each="categ:${listCategories}" th:id="${categ.getName()}"  class="section scrollspy">
+<div th:each="categ:${listCategories}" th:id="${categ.getName()}" class="section scrollspy">
 
     <div th:id="${categ.getName()}">
         <div class="parallax-container" style="z-index: 0">
