@@ -570,7 +570,8 @@
 </div>
 
 <div th:each="categ:${listCategories}" th:id="${categ.getName()}" style="z-index: 999;height: auto;background-color: #212121" class="section scrollspy">
-        <div class="parallax-container" style="z-index: 0">
+
+    <div class="parallax-container" style="z-index: 0">
             <div class=" parallax ">
                 <img th:src="${categ.getImageLink()}">
             </div>
