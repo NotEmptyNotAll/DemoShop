@@ -462,7 +462,68 @@
 
         }
     </style>
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Raleway:200');
 
+
+
+    #box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 400px;
+        height: 200px;
+        color: white;
+        font-family: 'Raleway';
+        font-size: 2.5rem;
+    }
+    .gradient-border {
+        --borderWidth: 3px;
+        background: #1D1F20;
+        position: relative;
+        border-radius: var(--borderWidth);
+    }
+    .gradient-border:after {
+        content: '';
+        position: absolute;
+        top: calc(-1 * var(--borderWidth));
+        left: calc(-1 * var(--borderWidth));
+        height: calc(100% + var(--borderWidth) * 2);
+        width: calc(100% + var(--borderWidth) * 2);
+        background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+        border-radius: calc(2 * var(--borderWidth));
+        z-index: -1;
+        -webkit-animation: animatedgradient 3s ease alternate infinite;
+        animation: animatedgradient 3s ease alternate infinite;
+        background-size: 300% 300%;
+    }
+
+
+    @-webkit-keyframes animatedgradient {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+
+    @keyframes animatedgradient {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+</style>
 
 </head>
 <body style="background-color: #212121">
@@ -471,7 +532,7 @@
 <div xmlns:th="http://www.thymeleaf.org">
 
 </div>
-<nav class="h-menu bg-red fg-white " style="background-color: #212121;z-index:999;   ">
+<nav class="h-menu bg-red fg-white " style="background-color: #212121;z-index:999;height: 50px   ">
 
     <div class="nav-wrapper    " align="center">
         <ul id="nav-mobile" class="left hide-on-med-and-down me">
@@ -570,20 +631,19 @@
 </div>
 
 <div th:each="categ:${listCategories}" th:id="${categ.getName()}" style="z-index: 999;height: auto;background-color: #212121" class="section scrollspy">
-
-    <div class="parallax-container" style="z-index: 0">
+        <div class="parallax-container" style="z-index: 0">
             <div class=" parallax ">
                 <img th:src="${categ.getImageLink()}">
             </div>
         </div>
 
-        <div class="section" style=" height: auto;  background: #212121;overflow: auto; z-index: 0; ">
+        <div class="section gradient-border" style=" height: auto;  background: #212121;overflow: auto; z-index: 0; ">
 
             <h4 class="white-text" th:utext="${categ.getName()}" align="center">...</h4>
             <hr>
             <div class="cards black-text">
 
-                <div class="card hoverable" th:each="prod:${categ.getProducts()}">
+                <div class="card hoverable gradient-border" th:each="prod:${categ.getProducts()}">
                     <img class="card__image" th:src="${prod.getImageLink()}" alt="wave"/>
                     <div class="card-title">
                         <a href="#" class="toggle-info btn">

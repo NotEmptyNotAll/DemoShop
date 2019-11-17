@@ -5,14 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d7c5a0e1-15a4-4dfc-9a8a-542c2797fb8e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/metalshop" beforeDir="false" afterPath="$PROJECT_DIR$/metalshop" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/metalshop/src/main/resources/static/js/materialize.js" beforeDir="false" afterPath="$PROJECT_DIR$/metalshop/src/main/resources/static/js/materialize.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/metalshop/src/main/resources/static/js/materialize.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/metalshop/src/main/resources/static/js/materialize.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/metalshop/src/main/resources/templates/js/materialize.js" beforeDir="false" afterPath="$PROJECT_DIR$/metalshop/src/main/resources/templates/js/materialize.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/metalshop/src/main/resources/templates/js/materialize.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/metalshop/src/main/resources/templates/js/materialize.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/product.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/product.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -43,22 +37,23 @@
     <favorites_list name="demo" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.57479787">
+    <splitter split-orientation="horizontal" split-proportion="0.5980755">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/resources/templates/product.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="259">
-                  <caret line="586" column="89" selection-start-line="586" selection-start-column="89" selection-end-line="586" selection-end-column="89" />
+                <state relative-caret-position="312">
+                  <caret line="464" selection-start-line="464" selection-end-line="464" />
                   <folding>
                     <element signature="n#style#0;n#head#0;n#html#0;n#!!top" />
+                    <element signature="n#style#2;n#head#0;n#html#0;n#!!top" />
                     <element signature="n#style#3;n#head#0;n#html#0;n#!!top" />
+                    <element signature="n#style#4;n#head#0;n#html#0;n#!!top" />
                     <element signature="n#style#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#nav#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                    <element signature="n#div#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" />
                     <element signature="n#style#0;n#hr#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#a#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -102,10 +97,10 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/rest/Service/AwsUploadService.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="352">
+                <state relative-caret-position="114">
                   <caret line="38" column="16" selection-start-line="38" selection-start-column="12" selection-end-line="38" selection-end-column="16" />
                   <folding>
                     <element signature="imports" expanded="true" />
@@ -436,7 +431,7 @@
   <component name="MavenRunner">
     <option name="skipTests" value="true" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="974" />
@@ -818,12 +813,12 @@
       <workItem from="1573235432683" duration="669000" />
       <workItem from="1573249275083" duration="2547000" />
       <workItem from="1573288431945" duration="102918000" />
-      <workItem from="1573749736832" duration="3918000" />
+      <workItem from="1573749736832" duration="6432000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="780230000" />
+    <option name="totallyTimeSpent" value="782744000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -835,10 +830,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7940663" visible="true" weight="0.27985075" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7940663" visible="true" weight="0.27985075" />
       <window_info id="Structure" order="1" sideWeight="0.20593368" side_tool="true" weight="0.36980307" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -846,7 +841,7 @@
       <window_info id="UI Designer" order="5" />
       <window_info id="Favorites" order="6" sideWeight="0.37553957" side_tool="true" weight="0.18763326" />
       <window_info id="Web" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Run Dashboard" order="0" sideWeight="0.8271335" visible="true" weight="0.032502707" />
+      <window_info active="true" anchor="bottom" id="Run Dashboard" order="0" sideWeight="0.8271335" visible="true" weight="0.2892741" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" sideWeight="0.49946696" weight="0.32719395" />
       <window_info anchor="bottom" id="Run" order="3" weight="0.24617068" />
@@ -935,7 +930,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/main/resources/templates/product.html</url>
-          <line>723</line>
+          <line>721</line>
           <option name="timeStamp" value="23" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -1351,36 +1346,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/product.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="586" column="89" selection-start-line="586" selection-start-column="89" selection-end-line="586" selection-end-column="89" />
-          <folding>
-            <element signature="n#style#0;n#head#0;n#html#0;n#!!top" />
-            <element signature="n#style#3;n#head#0;n#html#0;n#!!top" />
-            <element signature="n#style#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#nav#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#div#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#style#0;n#hr#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#script#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#script#1;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#script#2;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#script#3;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#script#4;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#script#5;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#script#6;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#script#9;n#body#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/welcomePage.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -1438,10 +1403,41 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/rest/Service/AwsUploadService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
+        <state relative-caret-position="114">
           <caret line="38" column="16" selection-start-line="38" selection-start-column="12" selection-end-line="38" selection-end-column="16" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/product.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="464" selection-start-line="464" selection-end-line="464" />
+          <folding>
+            <element signature="n#style#0;n#head#0;n#html#0;n#!!top" />
+            <element signature="n#style#2;n#head#0;n#html#0;n#!!top" />
+            <element signature="n#style#3;n#head#0;n#html#0;n#!!top" />
+            <element signature="n#style#4;n#head#0;n#html#0;n#!!top" />
+            <element signature="n#style#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#nav#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#hr#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#script#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#script#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#script#2;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#script#3;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#script#4;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#script#5;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#script#6;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#script#9;n#body#0;n#html#0;n#!!top" />
           </folding>
         </state>
       </provider>
