@@ -1,7 +1,12 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-
+<style>
+    .navhov:hover{
+        transition: 1s;
+        background-color: gray;
+    }
+</style>
 </head>
 
 <body>
@@ -11,28 +16,29 @@
         <nav class="h-menu bg-red fg-white " style=" height: 70px;background-color: #212121;z-index:3   ">
 
             <div class="nav-wrapper    " align="center">
+
                 <ul id="nav-mobile" class="left hide-on-med-and-down me">
 
-                    <li><a class="navbar-brand hoverable" th:href="@{/}">Home</a>
+                    <li><a class="navbar-brand hoverable navhov" th:href="@{/}">Home</a>
                     </li>
                     <li>
-                        <a class="nav-link hoverable" th:href="@{/userInfo}">User Info</a>
-                    </li>
-
-                    <li>
-                        <a class="nav-link hoverable" th:href="@{/product}">Product</a>
-                    </li>
-                    <li>
-                        <a class="nav-link hoverable" th:href="@{/admin}">Admin</a>
+                        <a class="nav-link hoverable navhov" th:href="@{/userInfo}">User Info</a>
                     </li>
 
                     <li>
-                        <a class="nav-link hoverable" th:if="${#request.userPrincipal == null}"
+                        <a class="nav-link hoverable navhov" th:href="@{/product}">Product</a>
+                    </li>
+                    <li>
+                        <a class="nav-link hoverable navhov" th:href="@{/admin}">Admin</a>
+                    </li>
+
+                    <li>
+                        <a class="nav-link hoverable navhov" th:if="${#request.userPrincipal == null}"
                            th:href="@{/registration}">Registration</a>
                     </li>
 
                     <li>
-                        <a class="nav-link hoverable" th:if="${#request.userPrincipal != null}" th:href="@{/stock}">Stock</a>
+                        <a class="nav-link hoverable navhov" th:if="${#request.userPrincipal != null}" th:href="@{/stock}">Stock</a>
                     </li>
 
                 </ul>

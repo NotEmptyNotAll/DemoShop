@@ -693,7 +693,7 @@
             position: relative;
             box-shadow: 10px 10px 42px 0 rgba(0,0,0,0.75);
         }
-        .box:after, .box:before{
+  .box:before{
             mix-blend-mode:multiply;
             filter:none;
             z-index: -1;
@@ -726,8 +726,8 @@
             animation-delay: -0.1s;
         }
         .box:hover:before, .box:hover:after {
-
-            animation-duration: 1s;
+            background-color: gray;
+            transition: 1s ;
         }
 
     </style>
@@ -1017,6 +1017,11 @@
             transition: all 0.3s 0.2s ease-out;
         }
 
+        .navhov:hover{
+            transition: 1s;
+            background-color: gray;
+        }
+
     </style>
     <style>
         body {
@@ -1188,15 +1193,15 @@
     <div class="nav-wrapper    " align="center">
         <ul id="nav-mobile" class="left hide-on-med-and-down me">
 
-            <li><a class="navbar-brand hoverable" th:href="@{/}">Home</a></li>
-            <li><a class="nav-link hoverable" th:href="@{/userInfo}">User Info</a></li>
-            <li><a class="nav-link hoverable" th:href="@{/product}">Product</a></li>
-            <li><a class="nav-link hoverable" th:href="@{/admin}">Admin</a></li>
-            <li><a class="nav-link hoverable" th:if="${#request.userPrincipal == null}"
+            <li><a class="navbar-brand hoverable navhov" th:href="@{/}">Home</a></li>
+            <li><a class="nav-link hoverable navhov" th:href="@{/userInfo}">User Info</a></li>
+            <li><a class="nav-link hoverable navhov" th:href="@{/product}">Product</a></li>
+            <li><a class="nav-link hoverable navhov" th:href="@{/admin}">Admin</a></li>
+            <li><a class="nav-link hoverable navhov" th:if="${#request.userPrincipal == null}"
                    th:href="@{/registration}">Registration</a></li>
-            <li><a class="nav-link hoverable" th:if="${#request.userPrincipal != null}" th:href="@{/stock}">Stock</a>
+            <li><a class="nav-link hoverable navhov" th:if="${#request.userPrincipal != null}" th:href="@{/stock}">Stock</a>
             </li>
-            <li><a class="nav-link hoverable" href="#modal1"><i class="material-icons">search</i></a></li>
+            <li><a class="nav-link hoverable navhov" href="#modal1"><i class="material-icons">search</i></a></li>
         </ul>
         <ul class="right hide-on-med-and-down">
             <li>
@@ -1307,8 +1312,9 @@
                         <h2>
                             <span th:utext="${prod.getName()}"></span>
                             <small>
-                                цена за один продукт:
+                                single product price:
                                 <span th:utext="${prod.getPrimaryPrice()}">...</span>
+                                 UAH
                             </small>
                         </h2>
                     </div>
@@ -1317,8 +1323,10 @@
 
                             <div th:each="att:${prod.getAttributes()}" class="radio">
                                 <input type="radio" class="hidden"/>
-                                <span th:utext="${att.getName()}+'   '"></span>
+                                <span th:utext="${att.getName()}+' : '"></span>
+                                <span> + to the main price: </span>
                                 <span th:utext="${att.getPrice()}"></span>
+                                UAH
                             </div>
                         </div>
                     </div>
@@ -1329,34 +1337,6 @@
 
         </div>
 
-        <!--
- <div class="card" th:each="prod:${categ.getProducts()}" style=" width:400px;float:left;margin:1.5%;background:#424242;">
-                <div class="card-image waves-effect waves-block waves-light "style="width: 400px;height: 300px">
-                    <img class="activator" th:src="${prod.getImageLink()}" style="width: 400px;height: 300px">
-                </div>
-                <div class="card-content" style="background:#424242 ">
-                    <span class="card-title activator  text-darken-4" th:utext="${prod.getName()}">...<i
-                            class="material-icons right">more_vert</i></span>
-                </div>
-                <div class="card-reveal" style="background:#424242; ">
-                    <span class="card-title t text-darken-4">Card Title<i
-                            class="material-icons right">close</i></span>
-                    <div class="row">
-                        <p>
-                            <label th:each="att:${prod.getAttributes()}">
-                                <input type="checkbox" />
-                                <span th:utext="${att.getName()}">...</span>
-                                <span >:  </span>
-                                <span th:utext="${att.getPrice()}">...</span>
-                            </label>
-                        </p>
-
-                    </div>
-                </div>
-            </div>
-
-
-        -->
 
 
 
