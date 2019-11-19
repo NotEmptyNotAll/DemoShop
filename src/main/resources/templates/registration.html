@@ -111,6 +111,7 @@
         }
 
 
+
     </style>
 
     <style>
@@ -167,19 +168,27 @@
                 opacity: 0;
             }
         }
+
+        .error-message{
+            background-color: #e57373 ;
+            border-radius: 20px;
+
+
+        }
     </style>
 
 </head>
+
 <body class="black-text">
 
 <th:block th:include="fragments/mobile_menu"></th:block>
 
-
+<br/><br/>
 <div class="container z-depth-5 hoverable" style="background: white;border-radius: 50px">
     <div class="container row">
         <div class="col-md-6 col-md-offset-3">
 
-            <div th:if="${param.success}" align="center" style="position: relative;top: 20px;">
+            <div th:if="${param.success}" align="center" style="position: relative;top: 20px; background-color: #69f0ae;border-radius: 20px;">
                 <div class="alert alert-info">You've successfully registered
                     to our awesome app!
                 </div>
@@ -190,7 +199,7 @@
             </div>
             <form class="col s12" th:action="@{/registration}" th:object="${user}" method="post">
 
-                <p class="error-message" th:if="${#fields.hasGlobalErrors()}"
+                <p class="error-message" align="center" th:if="${#fields.hasGlobalErrors()}"
                    th:each="error : ${#fields.errors('global')}" th:text="${error}">Validation
                     error</p>
 
@@ -200,7 +209,7 @@
                          th:classappend="${#fields.hasErrors('name')}? 'has-error':''">
                         <label for="firstName" class="control-label"> name</label> <input
                             id="firstName" class="form-control" th:field="*{name}" type="text"/>
-                        <p class="error-message"
+                        <p class="error-message" align="center"
                            th:each="error: ${#fields.errors('name')}"
                            th:text="${error}">Validation error</p>
                     </div>
@@ -213,7 +222,7 @@
                          th:classappend="${#fields.hasErrors('email')}? 'has-error':''">
                         <label for="email" class="control-label">E-mail</label> <input
                             id="email" class="form-control validate" th:field="*{email}" type="email"/>
-                        <p class="error-message"
+                        <p class="error-message" align="center"
                            th:each="error : ${#fields.errors('email')}" th:text="${error}">Validation
                             error</p>
                     </div>
@@ -226,7 +235,7 @@
                         <label for="confirmEmail" class="control-label">Confirm
                             e-mail</label>
                         <input id="confirmEmail" class="form-control validate" type="email" th:field="*{confirmEmail}"/>
-                        <p class="error-message "
+                        <p class="error-message " align="center"
                            th:each="error : ${#fields.errors('confirmEmail')}"
                            th:text="${error}">Validation error</p>
                     </div>
@@ -237,7 +246,7 @@
                          th:classappend="${#fields.hasErrors('password')}? 'has-error':''">
                         <label for="password" class="control-label">Password</label>
                         <input id="password" class="form-control" type="password" th:field="*{password}"/>
-                        <p class="error-message"
+                        <p class="error-message"align="center"
                            th:each="error : ${#fields.errors('password')}"
                            th:text="${error}">Validation error</p>
                     </div>
@@ -250,7 +259,7 @@
                         <label for="confirmPassword" class="control-label">Confirm
                             password</label> <input id="confirmPassword" class="form-control"
                                                     type="password" th:field="*{confirmPassword}"/>
-                        <p class="error-message"
+                        <p class="error-message" align="center"
                            th:each="error : ${#fields.errors('confirmPassword')}"
                            th:text="${error}">Validation error</p>
                     </div>

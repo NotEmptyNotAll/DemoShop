@@ -3,7 +3,7 @@
 <head>
 <style>
     .navhov:hover{
-        transition: 1s;
+        transition: 0.5s;
         background-color: gray;
     }
 </style>
@@ -44,7 +44,7 @@
                 <ul class="right hide-on-med-and-down">
 
                     <li>
-                        <a class="nav-link hoverable waves-effect waves-light btn"
+                        <a class="nav-li    nk hoverable waves-effect waves-light btn"
                            th:if="${#request.userPrincipal == null}" th:href="@{/login}"
                            style="background: #64dd17; border-radius: 30px; position:relative;right: 10px;">Login</a>
                     </li>
