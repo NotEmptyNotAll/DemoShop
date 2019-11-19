@@ -15,7 +15,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
 
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
     <script>
         $(document).ready(function () {
             $('select').material_select();
@@ -237,7 +237,7 @@
 <div style="min-height: 50px"></div>
 
 <!-- Modal Structure -->
-<div id="modal1" class="modal" style="background: #424242 ">
+<div id="modal1" class="modal" style="height: auto; background: #424242 ">
     <div class="modal-content white-text">
         <h5 align="center  ">Ваш заказ </h5>
         <hr>
@@ -246,10 +246,8 @@
 
 
             <form th:action="@{/userInfo}" enctype="multipart/form-data" th:object="${orderDto}" method="post">
-
-
-                <div class="row">
-
+                <br/>
+                <div class="row"style="height: 10vh">
                     <div class="file-field input-field">
                         <div class="btn">
                             <span>File</span>
@@ -261,16 +259,16 @@
                     </div>
                 </div>
 
-                <div class="row">
+                <div class="row" style="height: 10vh;">
                     <div class="col s12">
                         <textarea align="center" class="form-control" th:field="*{orderText}"></textarea>
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="col s12">
-
-                        <input type="text" th:field="*{deadline}" class="datepicker">
+                <div class="row" style="height: 10vh">
+                    <div class="s12 input-field">
+                        <input id="test" type="date" th:field="*{deadline}" class="datepicker" value="05/03/2019">
+                        <label for="test">Date</label>
                     </div>
                 </div>
 
@@ -383,10 +381,13 @@
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="../static/js/jquery-3.4.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
 <script>
-            $('.datepicker').datepicker();
-</script>
+    $(document).ready(function () {
+        $(".datepicker").pickadate({
+            format: "dd/mm/yyyy"
+        });
+    });</script>
 </body>
 
 </html>

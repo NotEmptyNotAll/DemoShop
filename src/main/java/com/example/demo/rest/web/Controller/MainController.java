@@ -23,7 +23,6 @@ public class MainController {
     public String welcomePage(Model model) {
         model.addAttribute("title", "Welcome");
         model.addAttribute("message", "This is welcome page!");
-        model.addAttribute("listCategories", categoriesService.findAllCategories());
         //System.out.println(userRepository.findAppUserByUserName("dbuser1").getUserName());
         return "welcomePage";
     }
