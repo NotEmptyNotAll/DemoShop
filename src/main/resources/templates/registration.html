@@ -170,10 +170,7 @@
         }
 
         .error-message{
-            background-color: #e57373 ;
-            border-radius: 20px;
-
-
+            color: red;
         }
     </style>
 
@@ -188,7 +185,7 @@
     <div class="container row">
         <div class="col-md-6 col-md-offset-3">
 
-            <div th:if="${param.success}" align="center" style="position: relative;top: 20px; background-color: #69f0ae;border-radius: 20px;">
+            <div th:if="${param.success}" align="center" style="position: relative;top: 20px; color: red;">
                 <div class="alert alert-info">You've successfully registered
                     to our awesome app!
                 </div>
