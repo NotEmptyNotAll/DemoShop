@@ -7,6 +7,6 @@ google:
 
 amazonProperties:
   endpointUrl: https://s3.eu-central-1.amazonaws.com
-  accessKey: AKIATMYDFE6D2VRV5LVE
-  secretKey: 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
+  accessKey: **********************
+  secretKey: ******************************
   bucketName: metalbucket
