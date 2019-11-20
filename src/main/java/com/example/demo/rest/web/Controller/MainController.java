@@ -16,8 +16,7 @@ import java.security.Principal;
 @Controller
 public class MainController {
 
-    @Autowired
-    private CategoriesService categoriesService;
+
 
     @RequestMapping(value = {"/", "/welcome"}, method = RequestMethod.GET)
     public String welcomePage(Model model) {

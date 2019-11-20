@@ -727,7 +727,7 @@
         }
         .box:hover:before, .box:hover:after {
             background-color: gray;
-            transition: 1s ;
+            transition: 0.5s ;
         }
 
     </style>
@@ -1205,16 +1205,16 @@
         </ul>
         <ul class="right hide-on-med-and-down">
             <li>
-                <button class="nav-link  hoverable waves-effect waves-light btn"
+                <a class="nav-link  hoverable waves-effect waves-light btn"
                         th:if="${#request.userPrincipal == null}" th:href="@{/login}"
                         style="background: #64dd17; border-radius: 30px; position:relative;right: 10px;">Login
-                </button>
+                </a>
             </li>
             <li>
-                <button class="nav-link hoverable waves-effect waves-light  btn"
+                <a class="nav-link hoverable waves-effect waves-light  btn"
                         th:if="${#request.userPrincipal != null}" th:href="@{/logout}"
                         style="background: #d50000;border-radius: 30px;  position:relative;right: 10px; ">Logout
-                </button>
+                </a>
             </li>
         </ul>
     </div>
@@ -1295,9 +1295,9 @@
 
         <div class="section " style=" height: auto;  background: #212121; z-index: 0; ">
 
-            <h1 align="center">
+            <h2 align="center">
                 <span  th:utext="${categ.getName()}" class="txt anim-text-flow">...</span>
-            </h1>
+            </h2>
             <hr>
             <div class="cards black-text">
 

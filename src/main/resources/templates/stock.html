@@ -166,7 +166,7 @@
 
 </head>
 <body class="black-text">
-<th:block th:include="fragments/mobile_menu.html"></th:block>
+<div th:replace="~{fragments/_menu :: fragmentMenu}"></div>
 <br/>
 <div class="container z-depth-5 hoverable"
      style="background: white;border-radius: 50px; height: auto; min-height: 65vh">
@@ -180,10 +180,7 @@
                    data-tooltip="добавить категорию"><i class="material-icons">add</i></a></li>
             <li><a href="#modal2" class="btn-floating tooltipped waves-effect yellow darken-1" data-position="left"
                    data-tooltip="добавить продукт"><i class="material-icons">library_add</i></a></li>
-            <li><a class="btn-floating tooltipped  green waves-effect" data-position="left"
-                   data-tooltip="удалить категории"><i class="material-icons">delete</i></a></li>
-            <li><a class="btn-floating blue waves-effect"><i class="material-icons">attach_file</i></a></li>
-        </ul>
+                </ul>
     </div>
     <!-- Modal Structure -->
     <form th:action="@{/addCategories}" enctype="multipart/form-data" th:object="${categoriesDto}" method="post">
@@ -227,52 +224,52 @@
         </div>
     </form>
     <form th:action="@{/addProduct}" enctype="multipart/form-data" th:object="${productDto}" method="post">
-        <div id="modal2" class="modal container" style="background: #424242 ">
-            <div class="modal-content  white-text">
-                <h5 align="center">продукт</h5>
-                <hr>
-                <div class="container">
-                    <div class="file-field input-field">
-                        <div class="btn">
-                            <span>File</span>
-                            <input type="file" name="file">
-                        </div>
-                        <div class="file-path-wrapper">
-                            <input class="file-path validate" type="text">
-                        </div>
+    <div id="modal2" class="modal container" style="background: #424242 ">
+        <div class="modal-content  white-text">
+            <h5 align="center">продукт</h5>
+            <hr>
+            <div class="container">
+                <div class="file-field input-field">
+                    <div class="btn">
+                        <span>File</span>
+                        <input type="file" name="file">
                     </div>
-                    <div class="row">
-                        <div class="form-group input-field inline col s12">
-                            <input id="categ_name" type="text" class="form-control validate" name="categ_name" value=''
-                                   th:field="*{nameCategories}">
-                            <label for="categ_name">categories</label>
-                        </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text">
                     </div>
-                    <div class="row">
-                        <div class="form-group input-field inline col s12">
-                            <input id="prod_name" type="text" class="form-control validate" name="prod_name" value=''
-                                   th:field="*{name}">
-                            <label for="prod_name">name</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="form-group input-field inline col s12">
-                            <input id="price" type="text" class="form-control validate" name="price" value=''
-                                   th:field="*{primaryPrice}">
-                            <label for="price">price</label>
-                        </div>
-                    </div>
-                    <button type="submit" class=" center btn btn-outline-success" style="position: center">create
-                        product
-                    </button>
                 </div>
-            </div>
-            <hr style="position: relative;top:8px">
-            <div class="modal-footer white-text" style="background: #212121 ">
-                <a href="#!" class="modal-close waves-effect waves-red btn-flat" style="color: white">Close</a>
+                <div class="row">
+                    <div class="form-group input-field inline col s12">
+                        <input id="categ_name" type="text" class="form-control validate" name="categ_name" value=''
+                               th:field="*{nameCategories}">
+                        <label for="categ_name">categories</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group input-field inline col s12">
+                        <input id="prod_name" type="text" class="form-control validate" name="prod_name" value=''
+                               th:field="*{name}">
+                        <label for="prod_name">name</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group input-field inline col s12">
+                        <input id="price" type="text" class="form-control validate" name="price" value=''
+                               th:field="*{primaryPrice}">
+                        <label for="price">price</label>
+                    </div>
+                </div>
+                <button type="submit" class=" center btn btn-outline-success" style="position: center">create
+                    product
+                </button>
             </div>
         </div>
-    </form>
+        <hr style="position: relative;top:8px">
+        <div class="modal-footer white-text" style="background: #212121 ">
+            <a href="#!" class="modal-close waves-effect waves-red btn-flat" style="color: white">Close</a>
+        </div>
+    </div>
+</form>
     <div class="container">
         <h4 align="center">склад</h4>
         <hr style="color: #e0e0e0;background-color:#e0e0e0  ">
@@ -292,16 +289,16 @@
                 <tbody style="height: auto">
                 <tr align="center">
                     <th>
-                        <div align="center">Id номер</div>
+                        <div align="center">Id </div>
                     </th>
                     <th>
-                        <div align="center">Имя продукта</div>
+                        <div align="center">name</div>
                     </th>
                     <th>
-                        <div align="center">Цена</div>
+                        <div align="center">price</div>
                     </th>
                     <th>
-                        <div align="center">Удалить</div>
+                        <div align="center">delete</div>
                     </th>
                 </tr>
                 <div th:each="prod:${categ.getProducts()}" style="height: auto">

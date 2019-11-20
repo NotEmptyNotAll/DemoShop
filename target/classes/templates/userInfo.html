@@ -244,6 +244,10 @@
         <h6 align="center" th:utext="${date}">...</h6>
         <div class="container">
 
+            <p class="error-message" align="center" th:if="${#fields.hasGlobalErrors()}"
+               th:each="error : ${#fields.errors('global')}" th:text="${error}">Validation
+                error</p>
+
 
             <form th:action="@{/userInfo}" enctype="multipart/form-data" th:object="${orderDto}" method="post">
                 <br/>

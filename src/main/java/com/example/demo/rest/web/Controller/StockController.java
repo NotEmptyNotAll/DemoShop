@@ -101,6 +101,8 @@ public class StockController {
         return "redirect:/stock";
     }
 
+
+
     @GetMapping("/deleteCategories/{categid}")
     public String deleteCategories(
             @PathVariable("categid") Long categid, Model model) {
