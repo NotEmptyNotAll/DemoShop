@@ -48,7 +48,7 @@ public class StockController {
         return new AttributeDto();
     }
 
-    @GetMapping("/stock")
+    @GetMapping
     public String stockPage(Model model, Principal principal) {
         // User loginUser= (User) ((Authentication)principal).getPrincipal();
         List<Categories> categories = categoriesService.findAllCategories();
