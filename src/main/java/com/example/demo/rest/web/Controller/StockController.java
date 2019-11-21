@@ -48,12 +48,12 @@ public class StockController {
         return new AttributeDto();
     }
 
-    @GetMapping
+    @GetMapping("/stock")
     public String stockPage(Model model, Principal principal) {
         // User loginUser= (User) ((Authentication)principal).getPrincipal();
         List<Categories> categories = categoriesService.findAllCategories();
         model.addAttribute("categories", categories);
-        return "stock";
+        return "/stock";
     }
 
     @PostMapping("/addCategories")
