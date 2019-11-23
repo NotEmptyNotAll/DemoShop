@@ -18,7 +18,6 @@ import java.security.Principal;
 import java.util.List;
 
 @Controller
-@RequestMapping("/stock")
 public class StockController {
 
     @Autowired
@@ -104,7 +103,7 @@ public class StockController {
 
 
 
-    @GetMapping("/deleteCategories/{categid}")
+    @GetMapping("stock/deleteCategories/{categid}")
     public String deleteCategories(
             @PathVariable("categid") Long categid, Model model) {
         categoriesService.deleteById(categid);
