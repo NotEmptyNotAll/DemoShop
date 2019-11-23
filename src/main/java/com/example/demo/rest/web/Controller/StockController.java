@@ -103,7 +103,7 @@ public class StockController {
 
 
 
-    @GetMapping("stock/deleteCategories/{categid}")
+    @GetMapping("/deleteCategories/{categid}")
     public String deleteCategories(
             @PathVariable("categid") Long categid, Model model) {
         categoriesService.deleteById(categid);
