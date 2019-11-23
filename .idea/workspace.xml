@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d7c5a0e1-15a4-4dfc-9a8a-542c2797fb8e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/rest/web/Controller/StockController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/rest/web/Controller/StockController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/rest/ConstValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/rest/ConstValue.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -92,25 +92,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="526">
-              <caret line="37" column="8" lean-forward="true" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="8" />
+            <state relative-caret-position="264">
+              <caret line="12" column="37" lean-forward="true" selection-start-line="12" selection-start-column="37" selection-end-line="12" selection-end-column="37" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/fragments/_menu.html">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/rest/ConstValue.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="40" column="120" selection-start-line="40" selection-start-column="115" selection-end-line="40" selection-end-column="120" />
-              <folding>
-                <element signature="n#style#0;n#nav#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#li#0;n#ul#1;n#div#0;n#nav#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#li#1;n#ul#1;n#div#0;n#nav#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="66">
+              <caret line="3" column="52" selection-start-line="3" selection-start-column="52" selection-end-line="3" selection-end-column="52" />
             </state>
           </provider>
         </entry>
@@ -238,7 +233,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/rest/Entity/Persistent_Logins.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/rest/Service/GoogleDriveService.java" />
         <option value="$PROJECT_DIR$/src/main/resources/app.yml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/demo/rest/ConstValue.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/rest/Service/DriveService.java" />
         <option value="$PROJECT_DIR$/src/main/resources/metalphoto-a4d22bfe915e.json" />
         <option value="$PROJECT_DIR$/src/main/resources/app.yaml" />
@@ -282,6 +276,7 @@
         <option value="$PROJECT_DIR$/src/main/resources/templates/fragments/mobile_menu.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/stock.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/demo/rest/web/Controller/StockController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/demo/rest/ConstValue.java" />
       </list>
     </option>
   </component>
@@ -704,12 +699,12 @@
       <workItem from="1573998513058" duration="26123000" />
       <workItem from="1574358831549" duration="1526000" />
       <workItem from="1574360695208" duration="1523000" />
-      <workItem from="1574537840123" duration="4351000" />
+      <workItem from="1574537840123" duration="5098000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="816267000" />
+    <option name="totallyTimeSpent" value="817014000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -722,8 +717,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7940663" visible="true" weight="0.17697228" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7940663" visible="true" weight="0.17697228" />
       <window_info id="Structure" order="1" sideWeight="0.20593368" side_tool="true" weight="0.36980307" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -731,7 +727,7 @@
       <window_info id="UI Designer" order="5" />
       <window_info id="Favorites" order="6" sideWeight="0.37553957" side_tool="true" weight="0.18763326" />
       <window_info id="Web" order="7" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Run Dashboard" order="0" sideWeight="0.8271335" visible="true" weight="0.23293608" />
+      <window_info anchor="bottom" id="Run Dashboard" order="0" sideWeight="0.8271335" visible="true" weight="0.18526544" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" sideWeight="0.49946696" weight="0.32719395" />
       <window_info anchor="bottom" id="Run" order="3" weight="0.24617068" />
@@ -1176,13 +1172,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/rest/ConstValue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/DemoApplication.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
@@ -1307,8 +1296,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="526">
-          <caret line="37" column="8" lean-forward="true" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="8" />
+        <state relative-caret-position="264">
+          <caret line="12" column="37" lean-forward="true" selection-start-line="12" selection-start-column="37" selection-end-line="12" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/demo/rest/ConstValue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="3" column="52" selection-start-line="3" selection-start-column="52" selection-end-line="3" selection-end-column="52" />
         </state>
       </provider>
     </entry>
