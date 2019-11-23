@@ -18,6 +18,7 @@ import java.security.Principal;
 import java.util.List;
 
 @Controller
+@RequestMapping("/stock")
 public class StockController {
 
     @Autowired
