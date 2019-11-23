@@ -88,11 +88,15 @@
     </style>
 
 </head>
-<body class="black-text">
-<th:block th:include="fragments/mobile_menu.html"></th:block>
+<body>
+
+<div th:replace="~{fragments/_menu :: fragmentMenu}"></div>
+
+
 <br/>
-<div class="container z-depth-5 hoverable"
-     style="background: white;border-radius: 50px; height: auto; min-height: 65vh">
+
+<div class="container z-depth-5 hoverable" style="background: white;border-radius: 50px; height: auto;">
+
     <br/>
     <div class="fixed-action-btn">
         <a class="btn-floating btn-large red">
@@ -103,16 +107,21 @@
                    data-tooltip="добавить категорию"><i class="material-icons">add</i></a></li>
             <li><a href="#modal2" class="btn-floating tooltipped waves-effect yellow darken-1" data-position="left"
                    data-tooltip="добавить продукт"><i class="material-icons">library_add</i></a></li>
-                </ul>
+            <li><a class="btn-floating tooltipped  green waves-effect" data-position="left"
+                   data-tooltip="удалить категории"><i class="material-icons">delete</i></a></li>
+            <li><a class="btn-floating blue waves-effect"><i class="material-icons">attach_file</i></a></li>
+        </ul>
     </div>
+
+
     <!-- Modal Structure -->
+
     <form th:action="@{/addCategories}" enctype="multipart/form-data" th:object="${categoriesDto}" method="post">
         <div id="modal1" class="modal" style="background: #424242 ">
             <div class="modal-content white-text">
                 <h5 align="center">категория</h5>
                 <hr>
                 <div class="container">
-
                     <div class="file-field input-field">
                         <div class="btn">
                             <span>File</span>
@@ -123,17 +132,12 @@
                         </div>
                     </div>
 
+
                     <div class="row">
                         <div class="form-group input-field inline col s12">
                             <input id="name" type="text" class="form-control validate" name="username" value=''
                                    th:field="*{name}">
                             <label for="name">name</label>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col s12">
-                            <textarea align="center" class="form-control" th:field="*{description}"></textarea>
                         </div>
                     </div>
                     <button type="submit" class="center btn btn-outline-success" style="position:center;">создать
@@ -146,53 +150,59 @@
             </div>
         </div>
     </form>
+
+
     <form th:action="@{/addProduct}" enctype="multipart/form-data" th:object="${productDto}" method="post">
-    <div id="modal2" class="modal container" style="background: #424242 ">
-        <div class="modal-content  white-text">
-            <h5 align="center">продукт</h5>
-            <hr>
-            <div class="container">
-                <div class="file-field input-field">
-                    <div class="btn">
-                        <span>File</span>
-                        <input type="file" name="file">
+        <div id="modal2" class="modal container" style="background: #424242 ">
+            <div class="modal-content  white-text">
+                <h5 align="center">продукт</h5>
+                <hr>
+                <div class="container">
+                    <div class="file-field input-field">
+                        <div class="btn">
+                            <span>File</span>
+                            <input type="file" name="file">
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text">
+                        </div>
                     </div>
-                    <div class="file-path-wrapper">
-                        <input class="file-path validate" type="text">
+
+
+                    <div class="row">
+                        <div class="form-group input-field inline col s12">
+                            <input id="categ_name" type="text" class="form-control validate" name="categ_name" value=''
+                                   th:field="*{nameCategories}">
+                            <label for="categ_name">categories</label>
+                        </div>
                     </div>
+                    <div class="row">
+                        <div class="form-group input-field inline col s12">
+                            <input id="prod_name" type="text" class="form-control validate" name="prod_name" value=''
+                                   th:field="*{name}">
+                            <label for="prod_name">name</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group input-field inline col s12">
+                            <input id="price" type="text" class="form-control validate" name="price" value=''
+                                   th:field="*{primaryPrice}">
+                            <label for="price">price</label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class=" center btn btn-outline-success" style="position: center">create
+                        product
+                    </button>
                 </div>
-                <div class="row">
-                    <div class="form-group input-field inline col s12">
-                        <input id="categ_name" type="text" class="form-control validate" name="categ_name" value=''
-                               th:field="*{nameCategories}">
-                        <label for="categ_name">categories</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="form-group input-field inline col s12">
-                        <input id="prod_name" type="text" class="form-control validate" name="prod_name" value=''
-                               th:field="*{name}">
-                        <label for="prod_name">name</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="form-group input-field inline col s12">
-                        <input id="price" type="text" class="form-control validate" name="price" value=''
-                               th:field="*{primaryPrice}">
-                        <label for="price">price</label>
-                    </div>
-                </div>
-                <button type="submit" class=" center btn btn-outline-success" style="position: center">create
-                    product
-                </button>
+            </div>
+            <hr style="position: relative;top:8px">
+            <div class="modal-footer white-text" style="background: #212121 ">
+                <a href="#!" class="modal-close waves-effect waves-red btn-flat" style="color: white">Close</a>
             </div>
         </div>
-        <hr style="position: relative;top:8px">
-        <div class="modal-footer white-text" style="background: #212121 ">
-            <a href="#!" class="modal-close waves-effect waves-red btn-flat" style="color: white">Close</a>
-        </div>
-    </div>
-</form>
+    </form>
+
     <div class="container">
         <h4 align="center">склад</h4>
         <hr style="color: #e0e0e0;background-color:#e0e0e0  ">
@@ -204,6 +214,7 @@
                                                                     th:utext="${categ.getName()}">...</a></li>
         </ul>
     </div>
+
     <div style="height: auto">
         <div th:each="categ:${categories}" th:id="${categ.getName()}" class="col s12  "
              style="height:auto;text-align: center;">
@@ -212,28 +223,33 @@
                 <tbody style="height: auto">
                 <tr align="center">
                     <th>
-                        <div align="center">Id </div>
+                        <div align="center">Id номер</div>
                     </th>
                     <th>
-                        <div align="center">name</div>
+                        <div align="center">Имя продукта</div>
                     </th>
                     <th>
-                        <div align="center">price</div>
+                        <div align="center">Цена</div>
                     </th>
                     <th>
-                        <div align="center">delete</div>
+                        <div align="center">Удалить</div>
                     </th>
                 </tr>
-                <div th:each="prod:${categ.getProducts()}" style="height: auto">
-                    <tr class="tableItem hoverable" style="border-radius: 30px;height: auto">
+
+                <div th:each="prod:${categ.getProducts()}">
+
+                    <tr class="tableItem hoverable">
+
                         <td th:utext="${prod.getProduct_id()}">...</td>
                         <td th:utext="${prod.getName()}">...</td>
                         <td th:utext="${prod.getPrimaryPrice()}">...</td>
                         <td>
+
                             <a th:href="@{/deleteProduct/{productId}(productId=${prod.getProduct_id()})}"
                                class="btn-floating btn-medium waves-effect tooltipped waves-light red "
                                data-position="right" data-tooltip="delete product"><i class="material-icons ">delete</i></a>
                         </td>
+
                     </tr>
                     <tr style="height: auto">
                         <td colspan="4">
@@ -262,7 +278,7 @@
 
                                                 <tr class="">
                                                     <form th:action="@{/addAttribute}" th:object="${attributeDto}"
-                                                          method="post" style="height: auto ">
+                                                          method="post">
                                                         <td>
                                                             <div class="row">
                                                                 <div class="form-group input-field inline col s12">
@@ -286,7 +302,7 @@
                                                         <td>
                                                             <button type="submit"
                                                                     class="btn btn-outline-success waves-effect"
-                                                                    name="action" th:value="${prod.getProduct_id()}">create attribute</button>
+                                                                    name="action" th:value="${prod.getName()}">create attribute</button>
                                                         </td>
                                                     </form>
                                                 </tr>
@@ -308,7 +324,7 @@
                 <td colspan="4">
                     <a th:href="@{/deleteCategories/{categid}(categid=${categ.getCategories_id()})}"
                        class="btn waves-red waves-effect center hoverable waves-teal red "
-                       style=" width: 100%; height: 120%; border-radius: 30px" ><i class="large material-icons ">delete</i></a>
+                       style=" width: 100%; height: 120%"><i class="large material-icons ">delete</i></a>
                 </td>
                 </tr>
                 </tbody>
@@ -447,7 +463,6 @@
         }
     });
 </script>
-
 
 </body>
 
