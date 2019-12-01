@@ -39,8 +39,7 @@ public class UserController {
     @Autowired
     private CategoriesService categoriesService;
 
-    @Autowired
-    private GoogleDriveService driveService;
+
 
     @Autowired
     private AwsUploadService awsUploadService;

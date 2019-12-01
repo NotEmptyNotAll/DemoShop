@@ -7,6 +7,7 @@ com\example\demo\rest\Entity\Order.class
 com\example\demo\rest\Repository\CategoriesRepository.class
 com\example\demo\rest\web\DTO\OrderDto.class
 com\example\demo\ServletInitializer.class
+com\example\demo\rest\Service\AwsUploadService.class
 com\example\demo\rest\Entity\Categories.class
 com\example\demo\rest\Service\SaveFileOnDir.class
 com\example\demo\rest\web\DTO\CategoriesShopDto.class

@@ -19,6 +19,7 @@ D:\Project\metal005\spring\src\main\java\com\example\demo\rest\Constraint\Custom
 D:\Project\metal005\spring\src\main\java\com\example\demo\rest\Entity\Order.java
 D:\Project\metal005\spring\src\main\java\com\example\demo\rest\web\DTO\CategoriesShopDto.java
 D:\Project\metal005\spring\src\main\java\com\example\demo\rest\Entity\Categories.java
+D:\Project\metal005\spring\src\main\java\com\example\demo\rest\Service\AwsUploadService.java
 D:\Project\metal005\spring\src\main\java\com\example\demo\rest\Configuration\WebSecurityConfig.java
 D:\Project\metal005\spring\src\main\java\com\example\demo\rest\Constraint\FieldMatchValidator.java
 D:\Project\metal005\spring\src\main\java\com\example\demo\rest\web\Controller\ProductController.java
