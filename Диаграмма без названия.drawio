@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2024-05-24T09:18:42.014Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36" etag="MkTwgoUysYdGcforp-Cq" version="24.4.6" type="github">
+<mxfile host="app.diagrams.net" modified="2024-05-27T12:08:23.385Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36" etag="PC1_fCai1QpP1SF2kvlr" version="24.4.9" type="github">
   <diagram name="Page-1" id="74b105a0-9070-1c63-61bc-23e55f88626e">
-    <mxGraphModel dx="1687" dy="925" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1.5" pageWidth="1169" pageHeight="826" background="none" math="0" shadow="0">
+    <mxGraphModel dx="1168" dy="623" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1.5" pageWidth="1169" pageHeight="826" background="none" math="0" shadow="0">
       <root>
         <mxCell id="0" style=";html=1;" />
         <mxCell id="1" style=";html=1;" parent="0" />
@@ -555,7 +555,7 @@
         <mxCell id="ebLqruqHU_UiJzqgtVBn-317" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Helvetica;fontSize=12;fontColor=default;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="ebLqruqHU_UiJzqgtVBn-154" source="ebLqruqHU_UiJzqgtVBn-305" target="ebLqruqHU_UiJzqgtVBn-315" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="ebLqruqHU_UiJzqgtVBn-304" value="minerva websocket handler" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;shadow=0;strokeColor=default;align=left;verticalAlign=middle;spacingLeft=6;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=none;" parent="ebLqruqHU_UiJzqgtVBn-154" vertex="1">
+        <mxCell id="ebLqruqHU_UiJzqgtVBn-304" value="minerva websocket adapter" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;shadow=0;strokeColor=default;align=left;verticalAlign=middle;spacingLeft=6;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=none;" parent="ebLqruqHU_UiJzqgtVBn-154" vertex="1">
           <mxGeometry x="30" y="650" width="150" height="60" as="geometry">
             <mxRectangle x="30" y="650" width="190" height="30" as="alternateBounds" />
           </mxGeometry>
